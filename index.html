@@ -10,7 +10,7 @@
     <title>Proyecto Misionero Familia Quijada Gómez — Montenegro (Berane)</title>
     <meta name="description"
         content="Proyecto misionero de la Familia Quijada Gómez en Montenegro (Berane). Conoce el llamado bíblico, la misión, preparación, cobertura y cómo apoyar." />
-    <link rel="canonical" href="https://tudominio.cl/" /> <!-- TODO: dominio real -->
+    <link rel="canonical" href="https://qgproject.cl/" /> <!-- TODO: dominio real -->
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 
     <!-- Identidad/branding -->
@@ -26,8 +26,8 @@
     <meta property="og:title" content="Proyecto Misionero Familia Quijada Gómez — Montenegro" />
     <meta property="og:description"
         content="Conoce el llamado, misión, preparación y cómo apoyar a la Familia Quijada Gómez en Montenegro (Berane)." />
-    <meta property="og:url" content="https://tudominio.cl/" /> <!-- TODO -->
-    <meta property="og:image" content="https://tudominio.cl/assets/og-image.jpg" /> <!-- TODO -->
+    <meta property="og:url" content="https://qgproject.cl/" /> <!-- TODO -->
+    <meta property="og:image" content="https://qjproject.cl/assets/og-image.jpg" /> <!-- TODO -->
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/jpeg" />
@@ -37,7 +37,7 @@
     <meta name="twitter:title" content="Proyecto Misionero Familia Quijada Gómez — Montenegro" />
     <meta name="twitter:description"
         content="Conoce el llamado, misión, preparación y cómo apoyar a la Familia Quijada Gómez en Montenegro (Berane)." />
-    <meta name="twitter:image" content="https://tudominio.cl/assets/og-image.jpg" /> <!-- TODO -->
+    <meta name="twitter:image" content="https://qgproject.cl/assets/og-image.jpg" /> <!-- TODO -->
     <!-- <meta name="twitter:site" content="@tu_cuenta">  Opcional -->
 
     <!-- Iconografía -->
@@ -67,18 +67,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Estructura de datos (schema.org) -->
-    <script type="application/ld+json">
-        {
-        "@context":"https://schema.org",
-        "@type":"NGO",
-        "name":"Proyecto Misionero Familia Quijada Gómez — Montenegro",
-        "url":"https://tudominio.cl/",
-        "logo":"https://tudominio.cl/assets/logo.png",
-        "areaServed":"Montenegro",
-        "foundingDate":"2025",
-        "description":"Proyecto misionero familiar en Berane, Montenegro. Llamado bíblico, misión y servicio a la comunidad junto a la iglesia local."
-        }
-    </script>
+
 </head>
 
 
@@ -102,8 +91,8 @@
                 </a>
             </div>
 
-            <!-- Toggler -->
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas"
+            <!-- Toggler (mobile) -->
+            <button class="navbar-toggler border-0 shadow-none ms-2" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#navOffcanvas" aria-controls="navOffcanvas" aria-label="Abrir menú">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -130,42 +119,56 @@
         <div class="nav-underline"></div>
     </nav>
 
-    <!-- Offcanvas Mobile -->
+    <!-- ===== OFFCANVAS MOBILE MENU ===== -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="navOffcanvas" aria-labelledby="navOffcanvasLabel">
         <div class="offcanvas-header">
             <h6 class="offcanvas-title d-flex align-items-center gap-2" id="navOffcanvasLabel">
-                <img src="assets/logo.png" width="28" height="28" class="rounded-circle border" alt="">
+                <img src="assets/icons/logo.png" width="28" height="28" class="rounded-circle border" alt="">
                 <span class="fw-bold">Familia Quijada Gómez</span>
             </h6>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
         </div>
-        <div class="offcanvas-body">
-            <ul class="navbar-nav fs-5">
-                <li class="nav-item"><a class="nav-link pro-link" data-bs-dismiss="offcanvas"
-                        href="#llamado">Llamado</a></li>
-                <li class="nav-item"><a class="nav-link pro-link" data-bs-dismiss="offcanvas"
-                        href="#familia">Familia</a></li>
-                <li class="nav-item"><a class="nav-link pro-link" data-bs-dismiss="offcanvas"
-                        href="#montenegro">Montenegro</a></li>
-                <li class="nav-item"><a class="nav-link pro-link" data-bs-dismiss="offcanvas" href="#mision">Misión</a>
+
+        <div class="offcanvas-body d-flex flex-column">
+            <ul class="navbar-nav fs-5 mb-4">
+                <li class="nav-item">
+                    <a class="nav-link pro-link" href="#llamado">Llamado</a>
                 </li>
-                <li class="nav-item"><a class="nav-link pro-link" data-bs-dismiss="offcanvas"
-                        href="#preparacion">Preparación</a></li>
-                <li class="nav-item"><a class="nav-link pro-link" data-bs-dismiss="offcanvas"
-                        href="#cobertura">Cobertura</a></li>
-                <li class="nav-item"><a class="nav-link pro-link" data-bs-dismiss="offcanvas"
-                        href="#donaciones">Apoyar</a></li>
-                <li class="nav-item"><a class="nav-link pro-link" data-bs-dismiss="offcanvas"
-                        href="#oracion">Oración</a></li>
-                <li class="nav-item"><a class="nav-link pro-link" data-bs-dismiss="offcanvas" href="#faq">Preguntas</a>
+                <li class="nav-item">
+                    <a class="nav-link pro-link" href="#familia">Familia</a>
                 </li>
-                <li class="nav-item"><a class="nav-link pro-link" data-bs-dismiss="offcanvas"
-                        href="#contacto">Contacto</a></li>
+                <li class="nav-item">
+                    <a class="nav-link pro-link" href="#montenegro">Montenegro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pro-link" href="#mision">Misión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pro-link" href="#preparacion">Preparación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pro-link" href="#cobertura">Cobertura</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pro-link" href="#donaciones">Apoyar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pro-link" href="#oracion">Oración</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pro-link" href="#faq">Preguntas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pro-link" href="#contacto">Contacto</a>
+                </li>
             </ul>
-            <hr class="my-3">
-            <a href="#donaciones" class="btn btn-cta w-100 rounded-pill py-2" data-bs-dismiss="offcanvas">
-                <i class="bi bi-heart-fill me-1"></i> Apoyar ahora
-            </a>
+
+            <!-- CTA dentro del offcanvas (mantiene el estilo) -->
+            <div class="mt-auto">
+                <a href="#donaciones" class="btn btn-cta w-100 rounded-pill py-2">
+                    <i class="bi bi-heart-fill me-1"></i> Apoyar la misión
+                </a>
+            </div>
         </div>
     </div>
 
@@ -587,7 +590,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -742,84 +744,65 @@
         </div>
     </section>
 
-
-
     <!-- ===== MISIÓN (PRO) ===== -->
-    <section id="mision">
+    <section id="mision" class="section-accent">
         <div class="container">
-
             <!-- Encabezado -->
             <div class="text-center mb-5">
                 <span class="text-uppercase small" style="color:var(--olive)">Propósito</span>
                 <h2 class="fw-bold mt-1">Nuestra misión</h2>
-                <p class="mb-0">
-                    Servir a Cristo y a la comunidad, acompañando a la iglesia local en Berane
-                    con <strong>fidelidad bíblica</strong> y <strong>amor práctico</strong>.
+                <p class="lead mb-0">
+                    Servir en <strong>Berane, Montenegro</strong>, apoyando la obra misionera de la familia
+                    <strong>Gómez Salvador</strong> y llevando el evangelio con fidelidad bíblica, amor práctico
+                    y compromiso cultural.
                 </p>
             </div>
 
-            <!-- Pilares -->
+            <!-- Cuatro pilares -->
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3">
-                    <article class="mission-card h-100">
+                    <article class="mission-card h-100 shadow-soft">
                         <div class="mission-icon"><i class="bi bi-people"></i></div>
                         <h5 class="mt-2 mb-1">Apoyar la obra</h5>
-                        <p class="mb-2">Servir junto a la iglesia local en reuniones, discipulado y vida comunitaria.
-                        </p>
-                        <ul class="mission-bullets">
-                            <li>Colaboración pastoral</li>
-                            <li>Edificación de la iglesia</li>
-                        </ul>
+                        <p>Colaborar con la iglesia local y fortalecer la fe a través de la comunión, discipulado y
+                            enseñanza.</p>
                     </article>
                 </div>
-
                 <div class="col-md-6 col-lg-3">
-                    <article class="mission-card h-100">
+                    <article class="mission-card h-100 shadow-soft">
                         <div class="mission-icon"><i class="bi bi-music-note-beamed"></i></div>
-                        <h5 class="mt-2 mb-1">Talentos y artes</h5>
-                        <p class="mb-2">Música y artes al servicio, con reverencia y respeto por el contexto.</p>
-                        <ul class="mission-bullets">
-                            <li>Alabanza y formación</li>
-                            <li>Eventos y talleres</li>
-                        </ul>
+                        <h5 class="mt-2 mb-1">Talentos y servicio</h5>
+                        <p>Usar nuestros dones —educación, música y técnica— como herramientas de edificación y
+                            testimonio cristiano.</p>
                     </article>
                 </div>
-
                 <div class="col-md-6 col-lg-3">
-                    <article class="mission-card h-100">
+                    <article class="mission-card h-100 shadow-soft">
                         <div class="mission-icon"><i class="bi bi-heart-pulse"></i></div>
-                        <h5 class="mt-2 mb-1">Apoyo comunitario</h5>
-                        <p class="mb-2">Acompañamiento a familias y jóvenes según necesidades reales.</p>
-                        <ul class="mission-bullets">
-                            <li>Consejería y ayuda</li>
-                            <li>Programas juveniles</li>
-                        </ul>
+                        <h5 class="mt-2 mb-1">Amor comunitario</h5>
+                        <p>Reflejar el amor de Cristo mediante acompañamiento familiar, ayuda social y programas con
+                            jóvenes.</p>
                     </article>
                 </div>
-
                 <div class="col-md-6 col-lg-3">
-                    <article class="mission-card h-100">
-                        <div class="mission-icon"><i class="bi bi-house-heart"></i></div>
-                        <h5 class="mt-2 mb-1">Establecerse</h5>
-                        <p class="mb-2">Integración cultural, aprendizaje de idioma y testimonio en la vida cotidiana.
-                        </p>
-                        <ul class="mission-bullets">
-                            <li>Idioma y cultura</li>
-                            <li>Servicio cotidiano</li>
-                        </ul>
+                    <article class="mission-card h-100 shadow-soft">
+                        <div class="mission-icon"><i class="bi bi-geo-alt"></i></div>
+                        <h5 class="mt-2 mb-1">Establecernos</h5>
+                        <p>Conocer la cultura, aprender el idioma montenegrino y vivir el evangelio día a día en la
+                            comunidad local.</p>
                     </article>
                 </div>
             </div>
 
-            <!-- Declaración y CTAs -->
-            <div class="text-center mt-4">
-                <p class="small text-secondary mb-3">
-                    “Hacemos todo para la gloria de Dios, en sujeción a la Escritura y en cooperación con la iglesia
-                    local.”
-                </p>
-                <div class="d-flex flex-wrap gap-2 justify-content-center">
+            <!-- Declaración final -->
+            <div class="text-center mt-5">
+                <blockquote class="blockquote text-secondary fst-italic">
+                    “Porque no nos predicamos a nosotros mismos, sino a Cristo Jesús como Señor.”
+                    <footer class="blockquote-footer mt-1">2 Corintios 4:5 — RVR1960</footer>
+                </blockquote>
+                <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
                     <a href="#preparacion" class="btn btn-primary">
-                        <i class="bi bi-signpost-split me-1"></i> Ver pasos de preparación
+                        <i class="bi bi-signpost-split me-1"></i> Ver preparación
                     </a>
                     <a href="#donaciones" class="btn btn-outline-primary">
                         <i class="bi bi-credit-card me-1"></i> Apoyar el proyecto
@@ -829,9 +812,8 @@
         </div>
     </section>
 
-
-    <!-- ===== PREPARACIÓN (PRO) ===== -->
-    <section id="preparacion" class="section-muted">
+    <!-- ===== PREPARACIÓN (PRO – DEFINITIVA) ===== -->
+    <section id="preparacion" class="section-muted prep-section">
         <div class="container">
             <!-- Encabezado -->
             <div class="text-center mb-4">
@@ -848,9 +830,9 @@
                 </div>
                 <div class="progress prep-progress" role="progressbar" aria-label="Progreso de preparación"
                     aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar" id="prepBar"></div>
+                    <div class="progress-bar" id="prepBar" style="width:0%"></div>
                 </div>
-                <div class="d-flex flex-wrap gap-2 mt-2">
+                <div class="d-flex flex-wrap gap-3 mt-2">
                     <span class="legend l-done"><i class="bi bi-check-circle-fill"></i> Completado</span>
                     <span class="legend l-now"><i class="bi bi-circle-half"></i> En curso</span>
                     <span class="legend l-next"><i class="bi bi-clock"></i> Próximo</span>
@@ -859,88 +841,77 @@
 
             <!-- Timeline -->
             <div class="timeline-pro">
-                <!-- 1. Perspectivas -->
-                <article class="t-item" data-status="done">
-                    <div class="t-dot"></div>
+                <!-- 1 -->
+                <article class="t-item is-visible" data-status="done">
+                    <span class="t-dot"></span>
                     <div class="t-card">
                         <div class="t-icon"><i class="bi bi-journal-bookmark"></i></div>
                         <h5 class="t-title mb-1">Curso Perspectivas</h5>
-                        <p class="mb-2">Formación misionera para comprender el propósito de Dios entre las naciones.</p>
-                        <div class="t-meta">
-                            <span class="badge t-badge done"><i class="bi bi-check2"></i> Completado</span>
-                            <small class="text-secondary">Fundamento bíblico y visión global</small>
-                        </div>
+                        <p class="t-text">Formación misionera para comprender el propósito de Dios entre las naciones.
+                        </p>
+                        <span class="badge t-badge done"><i class="bi bi-check2"></i> Completado</span>
+                        <small class="text-secondary d-block mt-1">Fundamento bíblico y visión global</small>
                     </div>
                 </article>
 
-                <!-- 2. Idiomas -->
-                <article class="t-item" data-status="now">
-                    <div class="t-dot"></div>
+                <!-- 2 -->
+                <article class="t-item is-visible" data-status="now">
+                    <span class="t-dot"></span>
                     <div class="t-card">
                         <div class="t-icon"><i class="bi bi-translate"></i></div>
-                        <h5 class="t-title mb-1">Idiomas e Inglés</h5>
-                        <p class="mb-2">Estudio dedicado y práctica comunitaria para comunicación respetuosa
-                            (montenegrino/serbocroata e inglés).</p>
-                        <div class="t-meta">
-                            <span class="badge t-badge now"><i class="bi bi-circle-half"></i> En curso</span>
-                            <small class="text-secondary">Plan de estudio semanal</small>
-                        </div>
+                        <h5 class="t-title mb-1">Idiomas</h5>
+                        <p class="t-text">Estudio dedicado y práctica comunitaria (montenegrino/serbocroata e inglés).
+                        </p>
+                        <span class="badge t-badge now"><i class="bi bi-circle-half"></i> En curso</span>
+                        <small class="text-secondary d-block mt-1">Plan de estudio semanal</small>
                     </div>
                 </article>
 
-                <!-- 3. Renuncias / ajustes -->
-                <article class="t-item" data-status="now">
-                    <div class="t-dot"></div>
+                <!-- 3 -->
+                <article class="t-item is-visible" data-status="now">
+                    <span class="t-dot"></span>
                     <div class="t-card">
                         <div class="t-icon"><i class="bi bi-briefcase"></i></div>
                         <h5 class="t-title mb-1">Ajustes laborales</h5>
-                        <p class="mb-2">Ordenar responsabilidades para disponernos al envío y la misión.</p>
-                        <div class="t-meta">
-                            <span class="badge t-badge now"><i class="bi bi-circle-half"></i> En curso</span>
-                            <small class="text-secondary">Transición administrativa y tiempos</small>
-                        </div>
+                        <p class="t-text">Ordenar responsabilidades para disponernos al envío y la misión.</p>
+                        <span class="badge t-badge now"><i class="bi bi-circle-half"></i> En curso</span>
+                        <small class="text-secondary d-block mt-1">Transición administrativa y tiempos</small>
                     </div>
                 </article>
 
-                <!-- 4. Grupos de cuidado -->
-                <article class="t-item" data-status="next">
-                    <div class="t-dot"></div>
+                <!-- 4 -->
+                <article class="t-item is-visible" data-status="next">
+                    <span class="t-dot"></span>
                     <div class="t-card">
                         <div class="t-icon"><i class="bi bi-people"></i></div>
                         <h5 class="t-title mb-1">Grupos de cuidado y consejería</h5>
-                        <p class="mb-2">Acompañamiento pastoral y rendición de cuentas.</p>
-                        <div class="t-meta">
-                            <span class="badge t-badge next"><i class="bi bi-clock"></i> Próximo</span>
-                            <small class="text-secondary">Mentoría regular y oración</small>
-                        </div>
+                        <p class="t-text">Acompañamiento pastoral y rendición de cuentas.</p>
+                        <span class="badge t-badge next"><i class="bi bi-clock"></i> Próximo</span>
+                        <small class="text-secondary d-block mt-1">Mentoría regular y oración</small>
                     </div>
                 </article>
 
-                <!-- 5. Papelería -->
-                <article class="t-item" data-status="next">
-                    <div class="t-dot"></div>
+                <!-- 5 -->
+                <article class="t-item is-visible" data-status="next">
+                    <span class="t-dot"></span>
                     <div class="t-card">
                         <div class="t-icon"><i class="bi bi-file-earmark-text"></i></div>
                         <h5 class="t-title mb-1">Papelería con propósito</h5>
-                        <p class="mb-2">Material de presentación y oración para informar con claridad.</p>
-                        <div class="t-meta">
-                            <span class="badge t-badge next"><i class="bi bi-clock"></i> Próximo</span>
-                            <small class="text-secondary">Carta de envío, boletines y landing</small>
-                        </div>
+                        <p class="t-text">Material de presentación y oración para informar con claridad.</p>
+                        <span class="badge t-badge next"><i class="bi bi-clock"></i> Próximo</span>
+                        <small class="text-secondary d-block mt-1">Carta de envío, boletines y landing</small>
                     </div>
                 </article>
 
-                <!-- 6. Acompañamiento OM Chile -->
-                <article class="t-item" data-status="next">
-                    <div class="t-dot"></div>
+                <!-- 6 -->
+                <article class="t-item is-visible" data-status="next">
+                    <span class="t-dot"></span>
                     <div class="t-card">
                         <div class="t-icon"><i class="bi bi-signpost-split"></i></div>
                         <h5 class="t-title mb-1">Acompañamiento OM Chile</h5>
-                        <p class="mb-2">Consejo y logística misionera, coordinando con iglesia local.</p>
-                        <div class="t-meta">
-                            <span class="badge t-badge next"><i class="bi bi-clock"></i> Próximo</span>
-                            <small class="text-secondary">Orientación, pasos de envío y redes</small>
-                        </div>
+                        <p class="t-text">Consejo y logística misionera, coordinando con iglesia local.</p>
+                        <span class="badge t-badge next"><i class="bi bi-clock"></i> Próximo</span>
+                        <small class="text-secondary d-block mt-1">Orientación, pasos de envío y redes</small>
                     </div>
                 </article>
             </div>
@@ -955,441 +926,669 @@
                 </a>
             </div>
         </div>
-    </section>
 
+        <!-- ===== COBERTURA (PROFESIONAL) ===== -->
+        <section id="cobertura" class="section-muted">
+            <div class="container">
+                <div class="row g-5 align-items-center">
 
-    <!-- ===== COBERTURA (PRO) ===== -->
-    <section id="cobertura">
-        <div class="container">
-            <div class="row g-5 align-items-center">
+                    <!-- Texto principal -->
+                    <div class="col-lg-6 order-lg-1">
+                        <header class="mb-3">
+                            <span class="text-uppercase small" style="color:var(--olive)">Cobertura y respaldo</span>
+                            <h2 class="fw-bold mt-1">Acompañamiento pastoral y misionero</h2>
+                        </header>
 
-                <!-- Texto -->
-                <div class="col-lg-6">
-                    <span class="text-uppercase small" style="color:var(--olive)">Cobertura y respaldo</span>
-                    <h2 class="fw-bold mt-1">Acompañamiento pastoral y misionero</h2>
-                    <p class="mb-3">
-                        El proyecto se desarrolla en sujeción a la <strong>iglesia local</strong> y con la guía de
-                        <strong>organizaciones misioneras confiables</strong>. Sostenemos una rendición de cuentas
-                        espiritual
-                        y práctica, cuidando la integridad y la fidelidad bíblica.
-                    </p>
-
-                    <!-- Sellos / confianza -->
-                    <div class="d-flex flex-wrap gap-2 mb-3">
-                        <span class="trust-chip"><i class="bi bi-shield-check"></i> Rendición de cuentas</span>
-                        <span class="trust-chip"><i class="bi bi-people"></i> Sujeción pastoral</span>
-                        <span class="trust-chip"><i class="bi bi-journal-check"></i> Informe trimestral</span>
-                        <span class="trust-chip"><i class="bi bi-heart-pulse"></i> Buen testimonio</span>
-                    </div>
-
-                    <!-- Tarjetas de cobertura -->
-                    <div class="row g-3">
-                        <div class="col-sm-6">
-                            <div class="cover-card shadow-soft h-100">
-                                <div class="d-flex align-items-center gap-2 mb-2">
-                                    <div class="cover-icon"><i class="bi bi-church"></i></div>
-                                    <h6 class="mb-0">Cobertura pastoral</h6>
-                                </div>
-                                <p class="small mb-2">
-                                    Consejo, oración y supervisión de vida y doctrina por parte de la iglesia local.
-                                </p>
-                                <ul class="small mb-0 ps-3">
-                                    <li>Mentoría regular</li>
-                                    <li>Cartas de recomendación</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="cover-card shadow-soft h-100">
-                                <div class="d-flex align-items-center gap-2 mb-2">
-                                    <div class="cover-icon"><i class="bi bi-signpost-split"></i></div>
-                                    <h6 class="mb-0">Acompañamiento misionero</h6>
-                                </div>
-                                <p class="small mb-2">
-                                    Orientación logística y coordinación con <strong>OM Chile</strong> (u organismo
-                                    afín).
-                                </p>
-                                <ul class="small mb-0 ps-3">
-                                    <li>Plan de envío</li>
-                                    <li>Buenas prácticas y redes</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Acciones -->
-                    <div class="d-flex flex-wrap gap-2 mt-4">
-                        <a href="assets/docs/carta-recomendacion.pdf" target="_blank" class="btn btn-primary">
-                            <i class="bi bi-file-earmark-text me-1"></i> Carta de recomendación (PDF)
-                        </a>
-                        <a href="mailto:pastor@tudominio.cl" class="btn btn-outline-primary">
-                            <i class="bi bi-envelope me-1"></i> Contacto pastoral
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Media / Testimonio -->
-                <div class="col-lg-6">
-                    <figure class="cover-media shadow-soft">
-                        <img src="assets/cobertura/envio.jpg" class="img-fluid rounded-4"
-                            alt="Oración y envío de la iglesia" loading="lazy">
-                        <figcaption class="cover-quote">
-                            <i class="bi bi-quote"></i>
-                            <p class="mb-1 fst-italic">
-                                “Oramos por la familia y damos testimonio de su integridad y servicio. Confiamos en el
-                                Señor para cada paso.”
+                        <div class="callout shadow-soft mb-3">
+                            <p class="mb-2">
+                                Este proyecto se desarrolla en <strong>sujeción a la iglesia local</strong> y bajo la
+                                <strong>supervisión espiritual y ministerial</strong> de pastores y mentores con
+                                trayectoria
+                                misionera. Además, cuenta con <strong>acompañamiento técnico y logístico</strong> de
+                                <strong>OM Chile</strong>, organización misionera reconocida por su servicio en más de
+                                100 países.
                             </p>
-                            <small class="text-secondary d-block">Pastor / Mentor — Iglesia Local</small>
-                        </figcaption>
-                    </figure>
-
-                    <!-- Logos / referencias (opcional: reemplaza imágenes) -->
-                    <div class="logos-row mt-3">
-                        <img src="assets/logos/iglesia.png" alt="Iglesia local">
-                        <img src="assets/logos/om.png" alt="OM Chile">
-                        <img src="assets/logos/red-misiones.png" alt="Red de misiones">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== DONACIONES (PRO) ===== -->
-    <section id="donaciones" class="section-muted">
-        <div class="container">
-
-            <!-- Encabezado persuasivo -->
-            <div class="text-center mb-4">
-                <span class="text-uppercase small" style="color:var(--olive)">Participa de la obra</span>
-                <h2 class="fw-bold mt-1">Apoya con oración, servicio o una ofrenda</h2>
-                <p class="mb-0">Gracias por considerar apoyar lo que el Señor está haciendo en Montenegro.</p>
-            </div>
-
-            <!-- Verso bíblico -->
-            <figure class="giving-verse shadow-soft mx-auto">
-                <blockquote class="mb-2 fst-italic">
-                    “Cada uno dé como propuso en su corazón; no con tristeza, ni por necesidad,
-                    porque <strong>Dios ama al dador alegre</strong>.”
-                </blockquote>
-                <figcaption class="text-secondary small">— 2 Corintios 9:7 (RVR1960)</figcaption>
-            </figure>
-
-            <!-- Otras formas de aportar -->
-            <div class="row g-3 mt-3 mb-4">
-                <div class="col-6 col-md-3">
-                    <a class="support-chip w-100 d-inline-flex" href="#oracion">
-                        <i class="bi bi-hands"></i> Unirme en oración
-                    </a>
-                </div>
-                <div class="col-6 col-md-3">
-                    <a class="support-chip w-100 d-inline-flex" href="#contacto">
-                        <i class="bi bi-people"></i> Servir / voluntariado
-                    </a>
-                </div>
-                <div class="col-6 col-md-3">
-                    <a class="support-chip w-100 d-inline-flex" id="shareLinkDon">
-                        <i class="bi bi-megaphone"></i> Compartir con otros
-                    </a>
-                </div>
-                <div class="col-6 col-md-3">
-                    <a class="support-chip w-100 d-inline-flex" href="#donaciones-pago">
-                        <i class="bi bi-credit-card"></i> Ofrenda económica
-                    </a>
-                </div>
-            </div>
-
-            <!-- Línea divisoria suave -->
-            <hr class="hr-soft" />
-
-            <!-- Donación económica -->
-            <div id="donaciones-pago" class="text-center mb-3">
-                <span class="text-uppercase small" style="color:var(--olive)">Ofrenda económica</span>
-                <h3 class="fw-bold mt-1">Con tarjeta o transferencia segura</h3>
-                <p class="mb-0">No guardamos datos de pago. El proceso se realiza en pasarelas certificadas.</p>
-            </div>
-
-            <!-- Selector de tipo + montos -->
-            <div class="row g-4 align-items-stretch">
-                <div class="col-lg-5">
-                    <div class="don-box shadow-soft h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h5 class="mb-0">Preferencia</h5>
-                            <div class="btn-group btn-group-sm" role="group" aria-label="Tipo de aporte">
-                                <input type="radio" class="btn-check" name="tipoAporte" id="aporteUnico"
-                                    autocomplete="off" checked>
-                                <label class="btn btn-outline-primary" for="aporteUnico">Única</label>
-                                <input type="radio" class="btn-check" name="tipoAporte" id="aporteMensual"
-                                    autocomplete="off">
-                                <label class="btn btn-outline-primary" for="aporteMensual">Mensual</label>
-                            </div>
+                            <p class="mb-0">
+                                Nuestro compromiso es mantener <strong>rendición de cuentas constante</strong>,
+                                transparencia
+                                en el uso de recursos y fidelidad a la Palabra en cada paso del envío y servicio.
+                            </p>
                         </div>
 
-                        <div>
-                            <div class="mb-2 small text-secondary">Montos sugeridos (CLP):</div>
-                            <div class="d-flex flex-wrap gap-2">
-                                <button class="amt-chip" data-amount="5000">$5.000</button>
-                                <button class="amt-chip" data-amount="10000">$10.000</button>
-                                <button class="amt-chip" data-amount="20000">$20.000</button>
-                                <button class="amt-chip" data-amount="50000">$50.000</button>
-                                <button class="amt-chip" data-amount="0">Otro</button>
-                            </div>
-                            <div class="input-group input-group-sm mt-3">
-                                <span class="input-group-text">$</span>
-                                <input id="amountInput" type="number" class="form-control" placeholder="Monto libre"
-                                    min="0" step="1000">
-                                <span class="input-group-text">CLP</span>
-                            </div>
-                            <small class="text-secondary d-block mt-2">Puedes ajustar el monto antes de ir a la
-                                pasarela.</small>
+                        <!-- Chips de confianza -->
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <span class="trust-chip"><i class="bi bi-shield-check"></i> Integridad y
+                                transparencia</span>
+                            <span class="trust-chip"><i class="bi bi-people"></i> Sujeción pastoral</span>
+                            <span class="trust-chip"><i class="bi bi-journal-check"></i> Informes de avance</span>
+                            <span class="trust-chip"><i class="bi bi-heart-pulse"></i> Acompañamiento continuo</span>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Pasarelas -->
-                <div class="col-lg-7">
-                    <div class="row g-4 h-100">
-                        <!-- Mercado Pago -->
-                        <div class="col-md-6">
-                            <div class="p-4 border rounded-4 h-100 bg-white">
-                                <div class="d-flex align-items-center gap-2 mb-2">
-                                    <i class="bi bi-credit-card fs-4" style="color:var(--brand-1)"></i>
-                                    <h5 class="mb-0">Tarjeta / Mercado&nbsp;Pago</h5>
+                        <!-- Tarjetas (doble columna) -->
+                        <div class="row g-3">
+                            <!-- Cobertura pastoral -->
+                            <div class="col-sm-6">
+                                <div class="cover-card shadow-soft h-100">
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <div class="cover-icon"><i class="bi bi-church"></i></div>
+                                        <h6 class="mb-0">Cobertura pastoral</h6>
+                                    </div>
+                                    <p class="small mb-2">
+                                        Supervisión espiritual, acompañamiento familiar y mentoría continua a través de
+                                        la
+                                        iglesia local y sus líderes.
+                                    </p>
+                                    <ul class="small mb-0 ps-3">
+                                        <li>Oración y consejo ministerial</li>
+                                        <li>Evaluaciones periódicas</li>
+                                        <li>Cartas de recomendación</li>
+                                    </ul>
                                 </div>
-                                <p class="small text-secondary mb-3">Débito, crédito o QR. Checkout alojado en Mercado
-                                    Pago.</p>
-                                <a id="btnMP" href="https://mpago.la/TULINK" target="_blank" rel="noopener"
-                                    class="btn btn-primary w-100">Donar con Mercado Pago</a>
-                                <ul class="small text-secondary mt-3 mb-0">
-                                    <li>Procesa CLP. Comprobante por email.</li>
-                                    <li>Comisión determinada por tu cuenta.</li>
-                                </ul>
                             </div>
-                        </div>
 
-                        <!-- Khipu -->
-                        <div class="col-md-6">
-                            <div class="p-4 border rounded-4 h-100 bg-white">
-                                <div class="d-flex align-items-center gap-2 mb-2">
-                                    <i class="bi bi-bank fs-4" style="color:var(--brand-1)"></i>
-                                    <h5 class="mb-0">Transferencia (Khipu)</h5>
-                                </div>
-                                <p class="small text-secondary mb-3">Transferencia desde cualquier banco chileno
-                                    (conciliación automática).</p>
-                                <a id="btnKhipu" href="https://khipu.com/payment/link/TULINK" target="_blank"
-                                    rel="noopener" class="btn btn-outline-primary w-100">Donar con Khipu</a>
-                                <ul class="small text-secondary mt-3 mb-0">
-                                    <li>Comisión baja y acreditación ágil.</li>
-                                    <li>Ideal para aportes locales.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sellos + FAQ breve -->
-            <div class="row g-4 align-items-start mt-4">
-                <div class="col-lg-6">
-                    <small class="text-secondary d-inline-flex align-items-center gap-3">
-                        <span><i class="bi bi-shield-lock"></i> SSL activo</span>
-                        <span><i class="bi bi-receipt"></i> Comprobante por email</span>
-                        <span><i class="bi bi-info-circle"></i> No guardamos datos de tarjeta</span>
-                    </small>
-                </div>
-                <div class="col-lg-6">
-                    <div class="accordion" id="donFaq">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="dq1">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#da1">
-                                    ¿Puedo comprometer un aporte mensual?
-                                </button>
-                            </h2>
-                            <div id="da1" class="accordion-collapse collapse" data-bs-parent="#donFaq">
-                                <div class="accordion-body small">
-                                    Sí. Selecciona “Mensual” arriba. Si requieres recibos o ajustes, escríbenos en <a
-                                        href="#contacto">Contacto</a>.
+                            <!-- Acompañamiento misionero -->
+                            <div class="col-sm-6">
+                                <div class="cover-card shadow-soft h-100">
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <div class="cover-icon"><i class="bi bi-globe-americas"></i></div>
+                                        <h6 class="mb-0">Acompañamiento misionero</h6>
+                                    </div>
+                                    <p class="small mb-2">
+                                        Coordinación, capacitación y orientación por parte de
+                                        <strong>Operación Movilización (OM Chile)</strong> y su red internacional.
+                                    </p>
+                                    <ul class="small mb-0 ps-3">
+                                        <li>Plan de envío y formación intercultural</li>
+                                        <li>Gestión de redes y recursos</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="dq2">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#da2">
-                                    ¿Cómo informan el uso de las ofrendas?
-                                </button>
-                            </h2>
-                            <div id="da2" class="accordion-collapse collapse" data-bs-parent="#donFaq">
-                                <div class="accordion-body small">
-                                    Publicamos reportes financieros y de impacto de manera periódica. Puedes revisar la
-                                    sección <a href="#cobertura">Cobertura</a>.
+
+                        <!-- Acciones -->
+                        <div class="d-flex flex-wrap gap-2 mt-4">
+                            <a href="assets/docs/carta-recomendacion.pdf" target="_blank" class="btn btn-primary">
+                                <i class="bi bi-file-earmark-text me-1"></i> Carta de recomendación (PDF)
+                            </a>
+                            <a href="mailto:pastor@tudominio.cl" class="btn btn-outline-primary">
+                                <i class="bi bi-envelope me-1"></i> Contacto pastoral
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Imagen y testimonio -->
+                    <!-- Imagen y testimonio (carrusel) -->
+                    <div class="col-lg-6 order-lg-2">
+                        <div id="coberturaCarousel"
+                            class="carousel slide cover-media shadow-soft position-relative overflow-hidden rounded-4"
+                            data-bs-ride="carousel" data-bs-interval="7000">
+
+                            <div class="carousel-inner">
+
+                                <!-- Slide 1: Pastor Jonhatan -->
+                                <div class="carousel-item active">
+                                    <img src="assets/hero/apoyo_pastoral.jpeg" class="d-block w-100"
+                                        alt="Momento de oración y envío pastoral" loading="lazy">
+                                    <div class="cover-quote">
+                                        <i class="bi bi-quote"></i>
+                                        <p class="fst-italic mb-1">
+                                            “Como iglesia, abrazamos este envío confiando en que el Señor sostendrá cada
+                                            paso en el campo misionero.”
+
+                                        </p>
+                                        <small class="text-secondary d-block">
+                                            Liderazgo pastoral — Iglesia local
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 2: otra foto de oración / envío -->
+                                <div class="carousel-item">
+                                    <img src="assets/hero/iglesia_JD.jpeg" class="d-block w-100"
+                                        alt="Iglesia orando y enviando a la familia" loading="lazy">
+                                    <div class="cover-quote">
+                                        <i class="bi bi-quote"></i>
+                                        <p class="fst-italic mb-1">
+                                            “La misión no es de ellos ni de nosotros, es del Señor y podemos
+                                            involucrarnos.
+                                            La misión es de Dios.”
+                                        </p>
+                                        <small class="text-secondary d-block">
+                                            Pastor Jonhatan Madrid — Iglesia ADDA Julio Dávila
+                                        </small>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Controles opcionales -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#coberturaCarousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#coberturaCarousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+                        </div>
+
+                        <!-- Logos de cobertura -->
+                        <div class="logos-row mt-3 d-flex justify-content-center align-items-center flex-wrap gap-3">
+                            <img src="assets/icons/Logo_adda.png" alt="Iglesia local" class="img-fluid"
+                                style="height:45px;">
+                            <img src="assets/icons/logo_om.png" alt="OM Chile" class="img-fluid" style="height:45px;">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DONACIONES (PRO) ===== -->
+        <section id="donaciones" class="section-muted">
+            <div class="container">
+
+                <!-- Encabezado persuasivo -->
+                <div class="text-center mb-4">
+                    <span class="text-uppercase small" style="color:var(--olive)">Participa de la obra</span>
+                    <h2 class="fw-bold mt-1">Apoya con oración, servicio o una ofrenda</h2>
+                    <p class="mb-0">Gracias por considerar apoyar lo que el Señor está haciendo en Montenegro.</p>
+                </div>
+
+                <!-- Verso bíblico -->
+                <figure class="giving-verse shadow-soft mx-auto">
+                    <blockquote class="mb-2 fst-italic">
+                        “Cada uno dé como propuso en su corazón; no con tristeza, ni por necesidad,
+                        porque <strong>Dios ama al dador alegre</strong>.”
+                    </blockquote>
+                    <figcaption class="text-secondary small">— 2 Corintios 9:7 (RVR1960)</figcaption>
+                </figure>
+
+                <!-- Otras formas de aportar -->
+                <div class="row g-3 mt-3 mb-4">
+                    <div class="col-6 col-md-3">
+                        <a class="support-chip w-100 d-inline-flex" href="#oracion">
+                            <i class="bi bi-hands"></i> Unirme en oración
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a class="support-chip w-100 d-inline-flex" href="#contacto">
+                            <i class="bi bi-people"></i> Servir / voluntariado
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a class="support-chip w-100 d-inline-flex" id="shareLinkDon" role="button">
+                            <i class="bi bi-megaphone"></i> Compartir con otros
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a class="support-chip w-100 d-inline-flex" href="#donaciones-pago">
+                            <i class="bi bi-credit-card"></i> Ofrenda económica
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Línea divisoria suave -->
+                <hr class="hr-soft" />
+
+                <!-- Donación económica -->
+                <div id="donaciones-pago" class="text-center mb-3">
+                    <span class="text-uppercase small" style="color:var(--olive)">Ofrenda económica</span>
+                    <h3 class="fw-bold mt-1">Con tarjeta o transferencia segura</h3>
+                    <p class="mb-0">No guardamos datos de pago. El proceso se realiza en pasarelas certificadas.</p>
+                </div>
+
+                <!-- Selector de tipo + montos -->
+                <div class="row g-4 align-items-stretch justify-content-center">
+
+                    <!-- Preferencias y monto -->
+                    <div class="col-md-8 col-lg-5">
+                        <div class="don-box shadow-soft h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="mb-0">Preferencia</h5>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Tipo de aporte">
+                                    <input type="radio" class="btn-check" name="tipoAporte" id="aporteUnico"
+                                        autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary" for="aporteUnico">Única</label>
+                                    <input type="radio" class="btn-check" name="tipoAporte" id="aporteMensual"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="aporteMensual">Mensual</label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="mb-2 small text-secondary">Montos sugeridos (CLP):</div>
+                                <div class="d-flex flex-wrap gap-2" aria-label="Montos sugeridos">
+                                    <button type="button" class="amt-chip" data-amount="5000">$5.000</button>
+                                    <button type="button" class="amt-chip" data-amount="10000">$10.000</button>
+                                    <button type="button" class="amt-chip" data-amount="20000">$20.000</button>
+                                    <button type="button" class="amt-chip" data-amount="50000">$50.000</button>
+                                    <button type="button" class="amt-chip" data-amount="0">Otro</button>
+                                </div>
+
+                                <div class="input-group input-group-sm mt-3">
+                                    <span class="input-group-text" id="curLabel">$</span>
+                                    <input id="amountInput" type="text" inputmode="numeric" class="form-control"
+                                        placeholder="Monto libre" aria-describedby="curLabel curSuffix"
+                                        aria-label="Monto de donación (CLP)">
+                                    <span class="input-group-text" id="curSuffix">CLP</span>
+                                </div>
+
+                                <small class="text-secondary d-block mt-2">
+                                    Puedes ajustar el monto antes de ir a la pasarela.
+                                </small>
+                            </div>
+
+                            <!-- Nota pastoral breve -->
+                            <div class="p-cta mt-3">
+                                <small class="mb-0">
+                                    “Damos por gracia lo que por gracia hemos recibido.” Oramos por cada persona que
+                                    decide apoyar.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pasarelas -->
+                    <div class="col-md-8 col-lg-5">
+                        <div class="p-4 border rounded-4 h-100 bg-white">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-credit-card fs-4" style="color:var(--brand-1)"></i>
+                                <h5 class="mb-0">Tarjeta / Mercado&nbsp;Pago</h5>
+                            </div>
+                            <p class="small text-secondary mb-3">
+                                Débito, crédito o QR. Checkout alojado en Mercado Pago.
+                            </p>
+                            <a id="btnMP" href="https://link.mercadopago.cl/qgproject" target="_blank" rel="noopener"
+                                class="btn btn-primary w-100" data-href-once="https://link.mercadopago.cl/qgproject"
+                                data-href-month="https://www.mercadopago.cl/subscriptions/checkout?preapproval_plan_id=ebb60de64dba4cfdbed5c772ad3e0494">
+                                Donar con Mercado Pago
+                            </a>
+                            <ul class="small text-secondary mt-3 mb-0">
+                                <li>Procesa CLP. Comprobante por email.</li>
+                                <li>Comisión determinada por tu cuenta.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div><!-- /row montos + pasarelas -->
+
+
+                <!-- Sellos + FAQ breve -->
+                <div class="row g-4 align-items-start mt-4">
+                    <div class="col-lg-6">
+                        <small class="text-secondary d-inline-flex align-items-center gap-3">
+                            <span><i class="bi bi-shield-lock"></i> SSL activo</span>
+                            <span><i class="bi bi-receipt"></i> Comprobante por email</span>
+                            <span><i class="bi bi-info-circle"></i> No guardamos datos de tarjeta</span>
+                        </small>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="accordion" id="donFaq">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="dq1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#da1" aria-controls="da1">
+                                        ¿Puedo comprometer un aporte mensual?
+                                    </button>
+                                </h2>
+                                <div id="da1" class="accordion-collapse collapse" data-bs-parent="#donFaq"
+                                    aria-labelledby="dq1">
+                                    <div class="accordion-body small">
+                                        Sí. Selecciona “Mensual” arriba. Si requieres recibos o ajustes, escríbenos en
+                                        <a href="#contacto">Contacto</a>.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="dq2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#da2" aria-controls="da2">
+                                        ¿Cómo informan el uso de las ofrendas?
+                                    </button>
+                                </h2>
+                                <div id="da2" class="accordion-collapse collapse" data-bs-parent="#donFaq"
+                                    aria-labelledby="dq2">
+                                    <div class="accordion-body small">
+                                        Publicamos reportes financieros y de impacto de manera periódica. Puedes revisar
+                                        la sección <a href="#cobertura">Cobertura</a>.
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div><!-- /row sellos + FAQ -->
+
+            </div>
+
+
+            <!-- ===== ORACIÓN (PRO) ===== -->
+            <section id="oracion">
+                <div class="container">
+                    <div class="text-center mb-4">
+                        <span class="text-uppercase small" style="color:var(--olive)">Intercede con nosotros</span>
+                        <h2 class="fw-bold mt-1">Puntos de oración</h2>
+                        <p class="mb-0">Gracias por acompañarnos en oración; es esencial para cada paso.</p>
+                    </div>
+
+                    <!-- Barra superior: motivo del día + acciones -->
+                    <div
+                        class="oracion-top shadow-soft mb-4 rounded-4 p-3 d-flex flex-wrap gap-3 align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="badge oracion-badge"><i class="bi bi-stars"></i> Motivo del día</span>
+                            <strong id="oracionDelDiaLabel" class="small">Cargando…</strong>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-outline-primary btn-sm" href="#contacto">
+                                <i class="bi bi-envelope-heart me-1"></i> Anotarme a cadena de oración
+                            </a>
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#sugerirOracionModal">
+                                <i class="bi bi-plus-circle me-1"></i> Sugerir motivo
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tarjetas de oración -->
+                    <div class="row g-4" id="oracionGrid">
+
+                        <!-- Motivo 1: Berane, Montenegro -->
+                        <div class="row g-4" id="oracionGrid">
+
+                            <!-- Misión global -->
+                            <div class="col-md-6 col-lg-4">
+                                <article class="oracion-card h-100" data-oracion-id="mision-global">
+                                    <header class="mb-2">
+                                        <span class="badge oracion-badge">
+                                            <i class="bi bi-globe2"></i> Misión global
+                                        </span>
+                                        <h5 class="mt-2 mb-1">Por la misión en todo el mundo</h5>
+                                    </header>
+                                    <p class="small mb-3">
+                                        Oremos para que el Señor siga levantando obreros para Su mies en cada nación.
+                                        Que el evangelio
+                                        sea anunciado con fidelidad, que muchas personas conozcan a Cristo y que la
+                                        iglesia tenga una visión
+                                        clara y bíblica de la misión, tanto cerca como lejos.
+                                    </p>
+                                    <footer class="oracion-footer d-flex justify-content-between align-items-center">
+                                        <div class="oracion-meta small text-secondary">
+                                            <button type="button" class="btn-like-oracion"
+                                                aria-label="Me gusta este motivo">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                            <span class="like-count" aria-live="polite">0</span> personas orando
+                                        </div>
+                                        <div class="oracion-actions d-flex align-items-center gap-1">
+                                            <button type="button"
+                                                class="btn btn-link btn-sm p-0 text-decoration-none btn-unirse-oracion">
+                                                Unirme
+                                            </button>
+                                            <button type="button" class="btn btn-icon-share-oracion"
+                                                aria-label="Compartir motivo">
+                                                <i class="bi bi-share"></i>
+                                            </button>
+                                        </div>
+                                    </footer>
+                                </article>
+                            </div>
+
+                            <!-- Etnias no alcanzadas -->
+                            <div class="col-md-6 col-lg-4">
+                                <article class="oracion-card h-100" data-oracion-id="etnias">
+                                    <header class="mb-2">
+                                        <span class="badge oracion-badge">
+                                            <i class="bi bi-flag"></i> Etnias no alcanzadas
+                                        </span>
+                                        <h5 class="mt-2 mb-1">Por los pueblos sin acceso al evangelio</h5>
+                                    </header>
+                                    <p class="small mb-3">
+                                        Oremos por las etnias no alcanzadas, donde casi no hay iglesias ni creyentes
+                                        locales. Que Dios
+                                        abra caminos, levante equipos misioneros, prepare traducciones bíblicas y abra
+                                        puertas en contextos
+                                        culturales y religiosos muy cerrados, para que muchos escuchen de Cristo por
+                                        primera vez.
+                                    </p>
+                                    <footer class="oracion-footer d-flex justify-content-between align-items-center">
+                                        <div class="oracion-meta small text-secondary">
+                                            <button type="button" class="btn-like-oracion"
+                                                aria-label="Me gusta este motivo">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                            <span class="like-count" aria-live="polite">0</span> personas orando
+                                        </div>
+                                        <div class="oracion-actions d-flex align-items-center gap-1">
+                                            <button type="button"
+                                                class="btn btn-link btn-sm p-0 text-decoration-none btn-unirse-oracion">
+                                                Unirme
+                                            </button>
+                                            <button type="button" class="btn btn-icon-share-oracion"
+                                                aria-label="Compartir motivo">
+                                                <i class="bi bi-share"></i>
+                                            </button>
+                                        </div>
+                                    </footer>
+                                </article>
+                            </div>
+
+                            <!-- Berane, Montenegro -->
+                            <div class="col-md-6 col-lg-4">
+                                <article class="oracion-card h-100" data-oracion-id="berane">
+                                    <header class="mb-2">
+                                        <span class="badge oracion-badge">
+                                            <i class="bi bi-geo-alt"></i> Berane, Montenegro
+                                        </span>
+                                        <h5 class="mt-2 mb-1">Por la ciudad y sus familias</h5>
+                                    </header>
+                                    <p class="small mb-3">
+                                        Oremos para que Berane sea alcanzada por el evangelio con claridad y amor. Que
+                                        el Señor abra puertas
+                                        en la ciudad, transforme vidas, restaure familias y levante una comunidad de fe
+                                        que refleje a Cristo
+                                        en su contexto local, con sabiduría y sensibilidad cultural.
+                                    </p>
+                                    <footer class="oracion-footer d-flex justify-content-between align-items-center">
+                                        <div class="oracion-meta small text-secondary">
+                                            <button type="button" class="btn-like-oracion"
+                                                aria-label="Me gusta este motivo">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                            <span class="like-count" aria-live="polite">0</span> personas orando
+                                        </div>
+                                        <div class="oracion-actions d-flex align-items-center gap-1">
+                                            <button type="button"
+                                                class="btn btn-link btn-sm p-0 text-decoration-none btn-unirse-oracion">
+                                                Unirme
+                                            </button>
+                                            <button type="button" class="btn btn-icon-share-oracion"
+                                                aria-label="Compartir motivo">
+                                                <i class="bi bi-share"></i>
+                                            </button>
+                                        </div>
+                                    </footer>
+                                </article>
+                            </div>
+
+                            <!-- Misioneros Sebastián y Pía en Montenegro -->
+                            <div class="col-md-6 col-lg-4">
+                                <article class="oracion-card h-100" data-oracion-id="sebastian-pia">
+                                    <header class="mb-2">
+                                        <span class="badge oracion-badge">
+                                            <i class="bi bi-people"></i> Sebastián y Pía
+                                        </span>
+                                        <h5 class="mt-2 mb-1">Por los misioneros en Montenegro</h5>
+                                    </header>
+                                    <p class="small mb-3">
+                                        Oremos por Sebastián y Pía, misioneros en Montenegro: por su vida espiritual, su
+                                        matrimonio, su salud
+                                        y su ánimo en el servicio. Que el Señor les sostenga, les provea lo necesario y
+                                        use sus dones para
+                                        bendecir a la iglesia local y dar testimonio de Cristo con gracia y verdad.
+                                    </p>
+                                    <footer class="oracion-footer d-flex justify-content-between align-items-center">
+                                        <div class="oracion-meta small text-secondary">
+                                            <button type="button" class="btn-like-oracion"
+                                                aria-label="Me gusta este motivo">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                            <span class="like-count" aria-live="polite">0</span> personas orando
+                                        </div>
+                                        <div class="oracion-actions d-flex align-items-center gap-1">
+                                            <button type="button"
+                                                class="btn btn-link btn-sm p-0 text-decoration-none btn-unirse-oracion">
+                                                Unirme
+                                            </button>
+                                            <button type="button" class="btn btn-icon-share-oracion"
+                                                aria-label="Compartir motivo">
+                                                <i class="bi bi-share"></i>
+                                            </button>
+                                        </div>
+                                    </footer>
+                                </article>
+                            </div>
+
+                            <!-- Iglesia universal -->
+                            <div class="col-md-6 col-lg-4">
+                                <article class="oracion-card h-100" data-oracion-id="iglesia-universal">
+                                    <header class="mb-2">
+                                        <span class="badge oracion-badge">
+                                            <i class="bi bi-building"></i> Iglesia universal
+                                        </span>
+                                        <h5 class="mt-2 mb-1">Por la iglesia y su llamado a la misión</h5>
+                                    </header>
+                                    <p class="small mb-3">
+                                        Oremos por la iglesia en todo el mundo, para que viva su identidad y llamado
+                                        misionero. Que el Señor
+                                        renueve la pasión por anunciar el evangelio, enviar obreros, acompañar a los
+                                        misioneros y reflejar
+                                        el carácter de Cristo en cada comunidad local.
+                                    </p>
+                                    <footer class="oracion-footer d-flex justify-content-between align-items-center">
+                                        <div class="oracion-meta small text-secondary">
+                                            <button type="button" class="btn-like-oracion"
+                                                aria-label="Me gusta este motivo">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                            <span class="like-count" aria-live="polite">0</span> personas orando
+                                        </div>
+                                        <div class="oracion-actions d-flex align-items-center gap-1">
+                                            <button type="button"
+                                                class="btn btn-link btn-sm p-0 text-decoration-none btn-unirse-oracion">
+                                                Unirme
+                                            </button>
+                                            <button type="button" class="btn btn-icon-share-oracion"
+                                                aria-label="Compartir motivo">
+                                                <i class="bi bi-share"></i>
+                                            </button>
+                                        </div>
+                                    </footer>
+                                </article>
+                            </div>
+
+                            <!-- Cristianos en la ventana menos alcanzada (10/40) -->
+                            <div class="col-md-6 col-lg-4">
+                                <article class="oracion-card h-100" data-oracion-id="ventana-1040">
+                                    <header class="mb-2">
+                                        <span class="badge oracion-badge">
+                                            <i class="bi bi-layers"></i> Ventana 10/40
+                                        </span>
+                                        <h5 class="mt-2 mb-1">Por los cristianos en los lugares menos alcanzados</h5>
+                                    </header>
+                                    <p class="small mb-3">
+                                        Oremos por los creyentes que viven en la llamada “ventana de los menos
+                                        alcanzados”, donde hay
+                                        persecución, oposición o casi ninguna presencia cristiana. Que el Señor les
+                                        fortalezca, les guarde,
+                                        les llene de esperanza y use su testimonio para abrir camino al evangelio en
+                                        medio de la dificultad.
+                                    </p>
+                                    <footer class="oracion-footer d-flex justify-content-between align-items-center">
+                                        <div class="oracion-meta small text-secondary">
+                                            <button type="button" class="btn-like-oracion"
+                                                aria-label="Me gusta este motivo">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                            <span class="like-count" aria-live="polite">0</span> personas orando
+                                        </div>
+                                        <div class="oracion-actions d-flex align-items-center gap-1">
+                                            <button type="button"
+                                                class="btn btn-link btn-sm p-0 text-decoration-none btn-unirse-oracion">
+                                                Unirme
+                                            </button>
+                                            <button type="button" class="btn btn-icon-share-oracion"
+                                                aria-label="Compartir motivo">
+                                                <i class="bi bi-share"></i>
+                                            </button>
+                                        </div>
+                                    </footer>
+                                </article>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Modal: sugerir motivo -->
+            <div class="modal fade" id="sugerirOracionModal" tabindex="-1" aria-labelledby="sugerirOracionLbl"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <form id="sugerirOracionForm" class="modal-content needs-validation"
+                        action="backend/sugerir_oracion.php" method="POST" novalidate>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="sugerirOracionLbl">Sugerir motivo de oración</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Cerrar"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label" for="sugTitulo">Título del motivo</label>
+                                <input type="text" class="form-control" id="sugTitulo" name="sugTitulo" required
+                                    maxlength="80" placeholder="Ej. Salud de la familia, viajes, idioma…">
+                                <div class="invalid-feedback">Ingresa un título.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="sugDescripcion">Descripción breve</label>
+                                <textarea id="sugDescripcion" name="sugDescripcion" class="form-control" rows="3"
+                                    required maxlength="240" placeholder="Una breve explicación del motivo."></textarea>
+                                <div class="invalid-feedback">Ingresa una breve descripción.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="sugTag">Etiqueta (opcional)</label>
+                                <select id="sugTag" name="sugTag" class="form-select">
+                                    <option value="">— Seleccionar —</option>
+                                    <option value="voluntad">Voluntad del Señor</option>
+                                    <option value="familia">Familia</option>
+                                    <option value="montenegro">Montenegro</option>
+                                    <option value="iglesia">Iglesia local</option>
+                                </select>
+                            </div>
+
+                            <!-- honeypot antispam -->
+                            <input type="text" id="sugWebsite" name="website" class="d-none" tabindex="-1"
+                                autocomplete="off" />
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-send me-1"></i> Enviar sugerencia
+                            </button>
+                        </div>
+                    </form>
+
                 </div>
             </div>
 
-        </div>
-    </section>
-
-
-    <!-- ===== ORACIÓN (PRO) ===== -->
-    <section id="oracion">
-        <div class="container">
-            <div class="text-center mb-4">
-                <span class="text-uppercase small" style="color:var(--olive)">Intercede con nosotros</span>
-                <h2 class="fw-bold mt-1">Puntos de oración</h2>
-                <p class="mb-0">Gracias por acompañarnos en oración; es esencial para cada paso.</p>
-            </div>
-
-            <!-- Barra superior: motivo del día + acciones -->
-            <div
-                class="oracion-top shadow-soft mb-4 rounded-4 p-3 d-flex flex-wrap gap-3 align-items-center justify-content-between">
-                <div class="d-flex align-items-center gap-2">
-                    <span class="badge oracion-badge"><i class="bi bi-stars"></i> Motivo del día</span>
-                    <strong id="oracionDelDiaLabel" class="small">Cargando…</strong>
-                </div>
-                <div class="d-flex gap-2">
-                    <a class="btn btn-outline-primary btn-sm" href="#contacto">
-                        <i class="bi bi-envelope-heart me-1"></i> Anotarme a cadena de oración
-                    </a>
-                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#sugerirOracionModal">
-                        <i class="bi bi-plus-circle me-1"></i> Sugerir motivo
-                    </button>
-                </div>
-            </div>
-
-            <!-- Tarjetas de oración -->
-            <div class="row g-4" id="oracionGrid">
-                <!-- 1 -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <article class="pray-card h-100" data-key="voluntad">
-                        <div class="pray-icon"><i class="bi bi-crosshair2"></i></div>
-                        <h6 class="mt-2 mb-1">Voluntad del Señor</h6>
-                        <p class="small text-secondary mb-2">Dirección clara en cada decisión.</p>
-
-                        <div class="collapse" id="c-voluntad">
-                            <ul class="pray-list small">
-                                <li>Sabiduría y discernimiento.</li>
-                                <li>Puertas abiertas y tiempos correctos.</li>
-                            </ul>
-                            <blockquote class="pray-verse small mb-2">“Encomienda a Jehová tu camino…” — Sal 37:5
-                            </blockquote>
-                        </div>
-
-                        <div class="d-flex gap-2 mt-auto">
-                            <button class="btn btn-primary btn-sm flex-fill" data-bs-toggle="collapse"
-                                data-bs-target="#c-voluntad">
-                                <i class="bi bi-journal-bookmark me-1"></i> Ver detalles
-                            </button>
-                            <button class="btn btn-outline-primary btn-sm btn-pray flex-fill">
-                                <i class="bi bi-hand-thumbs-up me-1"></i> Estoy orando (<span
-                                    class="pray-count">0</span>)
-                            </button>
-                            <button class="btn btn-outline-secondary btn-sm btn-share" title="Compartir motivo">
-                                <i class="bi bi-share"></i>
-                            </button>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- 2 -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <article class="pray-card h-100" data-key="familia">
-                        <div class="pray-icon"><i class="bi bi-people"></i></div>
-                        <h6 class="mt-2 mb-1">Familia y unidad</h6>
-                        <p class="small text-secondary mb-2">Cuidado, salud y crecimiento en gracia.</p>
-
-                        <div class="collapse" id="c-familia">
-                            <ul class="pray-list small">
-                                <li>Unidad, paz y ánimo en todo momento.</li>
-                                <li>Provisión y salud integral.</li>
-                            </ul>
-                            <blockquote class="pray-verse small mb-2">“El Dios de paz estará con vosotros.” — Fil 4:9
-                            </blockquote>
-                        </div>
-
-                        <div class="d-flex gap-2 mt-auto">
-                            <button class="btn btn-primary btn-sm flex-fill" data-bs-toggle="collapse"
-                                data-bs-target="#c-familia">
-                                <i class="bi bi-journal-bookmark me-1"></i> Ver detalles
-                            </button>
-                            <button class="btn btn-outline-primary btn-sm btn-pray flex-fill">
-                                <i class="bi bi-hand-thumbs-up me-1"></i> Estoy orando (<span
-                                    class="pray-count">0</span>)
-                            </button>
-                            <button class="btn btn-outline-secondary btn-sm btn-share" title="Compartir motivo">
-                                <i class="bi bi-share"></i>
-                            </button>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- 3 -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <article class="pray-card h-100" data-key="montenegro">
-                        <div class="pray-icon"><i class="bi bi-globe2"></i></div>
-                        <h6 class="mt-2 mb-1">Montenegro</h6>
-                        <p class="small text-secondary mb-2">Puertas abiertas y favor con la gente.</p>
-
-                        <div class="collapse" id="c-montenegro">
-                            <ul class="pray-list small">
-                                <li>Relaciones sanas con comunidad e iglesia local.</li>
-                                <li>Aprendizaje del idioma y cultura.</li>
-                            </ul>
-                            <blockquote class="pray-verse small mb-2">“Orad por la paz de la ciudad…” — Jer 29:7
-                            </blockquote>
-                        </div>
-
-                        <div class="d-flex gap-2 mt-auto">
-                            <button class="btn btn-primary btn-sm flex-fill" data-bs-toggle="collapse"
-                                data-bs-target="#c-montenegro">
-                                <i class="bi bi-journal-bookmark me-1"></i> Ver detalles
-                            </button>
-                            <button class="btn btn-outline-primary btn-sm btn-pray flex-fill">
-                                <i class="bi bi-hand-thumbs-up me-1"></i> Estoy orando (<span
-                                    class="pray-count">0</span>)
-                            </button>
-                            <button class="btn btn-outline-secondary btn-sm btn-share" title="Compartir motivo">
-                                <i class="bi bi-share"></i>
-                            </button>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- 4 -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <article class="pray-card h-100" data-key="iglesia">
-                        <div class="pray-icon"><i class="bi bi-journal-bookmark"></i></div>
-                        <h6 class="mt-2 mb-1">Iglesia local</h6>
-                        <p class="small text-secondary mb-2">Unidad, fidelidad y edificación mutua.</p>
-
-                        <div class="collapse" id="c-iglesia">
-                            <ul class="pray-list small">
-                                <li>Sabiduría pastoral y crecimiento en santidad.</li>
-                                <li>Edificación de la congregación.</li>
-                            </ul>
-                            <blockquote class="pray-verse small mb-2">“Edificándoos en vuestra santísima fe…” — Jud 1:20
-                            </blockquote>
-                        </div>
-
-                        <div class="d-flex gap-2 mt-auto">
-                            <button class="btn btn-primary btn-sm flex-fill" data-bs-toggle="collapse"
-                                data-bs-target="#c-iglesia">
-                                <i class="bi bi-journal-bookmark me-1"></i> Ver detalles
-                            </button>
-                            <button class="btn btn-outline-primary btn-sm btn-pray flex-fill">
-                                <i class="bi bi-hand-thumbs-up me-1"></i> Estoy orando (<span
-                                    class="pray-count">0</span>)
-                            </button>
-                            <button class="btn btn-outline-secondary btn-sm btn-share" title="Compartir motivo">
-                                <i class="bi bi-share"></i>
-                            </button>
-                        </div>
-                    </article>
-                </div>
-            </div>
 
             <!-- CTA -->
             <div class="text-center mt-4">
@@ -1400,688 +1599,728 @@
                     <i class="bi bi-gift me-1"></i> También quiero apoyar económicamente
                 </a>
             </div>
-        </div>
-    </section>
+            </div>
+        </section>
 
-    <!-- Modal sugerir motivo -->
-    <div class="modal fade" id="sugerirOracionModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form class="needs-validation" novalidate>
+        <!-- Modal sugerir motivo -->
+        <div class="modal fade" id="sugerirOracionModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form class="needs-validation" novalidate>
+                        <div class="modal-header">
+                            <h5 class="modal-title"><i class="bi bi-plus-circle me-1"></i> Sugerir motivo de oración
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-2">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" required>
+                                <div class="invalid-feedback">Escribe tu nombre.</div>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" required>
+                                <div class="invalid-feedback">Email inválido.</div>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Motivo</label>
+                                <textarea class="form-control" rows="4"
+                                    placeholder="Cuéntanos el motivo (será tratado con discreción)" required></textarea>
+                                <div class="invalid-feedback">Escribe el motivo.</div>
+                            </div>
+                            <small class="text-secondary">Lo recibiremos y oraremos por ello. Si necesitas
+                                seguimiento,
+                                indícalo.</small>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" type="submit">Enviar motivo</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ===== FAQ (PRO) ===== -->
+        <section id="faq" class="section-muted">
+            <div class="container">
+                <div class="text-center mb-4">
+                    <span class="text-uppercase small" style="color:var(--olive)">Dudas comunes</span>
+                    <h2 class="fw-bold mt-1">Preguntas frecuentes</h2>
+                    <p class="mb-0">Si no ves tu respuesta aquí, escríbenos y con gusto te responderemos.</p>
+                </div>
+
+                <!-- Barra de herramientas FAQ -->
+                <div class="faq-toolbar shadow-soft rounded-4 p-3 mb-4">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-lg-6">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                                <input id="faqSearch" type="text" class="form-control"
+                                    placeholder="Buscar pregunta por palabra clave…">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
+                                <button class="btn btn-outline-primary btn-sm faq-tag" data-tag="all"
+                                    aria-pressed="true">Todas</button>
+                                <button class="btn btn-outline-primary btn-sm faq-tag"
+                                    data-tag="donaciones">Donaciones</button>
+                                <button class="btn btn-outline-primary btn-sm faq-tag"
+                                    data-tag="finanzas">Finanzas</button>
+                                <button class="btn btn-outline-primary btn-sm faq-tag" data-tag="mision">Misión</button>
+                                <button class="btn btn-outline-primary btn-sm faq-tag"
+                                    data-tag="transparencia">Transparencia</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acordeón FAQ -->
+                <div class="row g-5">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="accordion" id="faqAcc">
+
+                            <!-- Item 1 -->
+                            <div class="accordion-item faq-item" data-tags="finanzas transparencia donaciones"
+                                id="faq-uso-ofrendas">
+                                <h2 class="accordion-header" id="q1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#a1" aria-expanded="true" aria-controls="a1">
+                                        ¿Cómo se utilizarán las ofrendas?
+                                    </button>
+                                </h2>
+                                <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc">
+                                    <div class="accordion-body">
+                                        Se destinan a <strong>idioma</strong>, <strong>vivienda</strong>,
+                                        <strong>movilidad</strong>,
+                                        <strong>materiales</strong> y <strong>proyectos con la iglesia
+                                            local</strong>.
+                                        Publicaremos reportes
+                                        periódicos y un consolidado trimestral en la sección <a
+                                            href="#cobertura">Cobertura</a>.
+                                        <div class="faq-actions mt-2">
+                                            <span class="badge rounded-pill bg-light text-dark me-2">Finanzas</span>
+                                            <span
+                                                class="badge rounded-pill bg-light text-dark me-2">Transparencia</span>
+                                            <button class="btn btn-outline-secondary btn-sm faq-copy"
+                                                data-target="#faq-uso-ofrendas">
+                                                <i class="bi bi-link-45deg"></i> Copiar enlace
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="accordion-item faq-item" data-tags="donaciones finanzas"
+                                id="faq-aporte-mensual">
+                                <h2 class="accordion-header" id="q2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
+                                        ¿Puedo comprometer apoyo mensual?
+                                    </button>
+                                </h2>
+                                <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                                    <div class="accordion-body">
+                                        Sí. Puedes optar por <strong>suscripción mensual</strong> (ver <a
+                                            href="#donaciones">Donaciones</a>) y
+                                        recibirás reportes, cartas y motivos de oración. Si necesitas ayuda para
+                                        configurarlo, contáctanos en
+                                        <a href="#contacto">Contacto</a>.
+                                        <div class="faq-actions mt-2">
+                                            <span class="badge rounded-pill bg-light text-dark me-2">Donaciones</span>
+                                            <button class="btn btn-outline-secondary btn-sm faq-copy"
+                                                data-target="#faq-aporte-mensual">
+                                                <i class="bi bi-link-45deg"></i> Copiar enlace
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="accordion-item faq-item" data-tags="transparencia finanzas" id="faq-rendicion">
+                                <h2 class="accordion-header" id="q3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#a3" aria-expanded="false" aria-controls="a3">
+                                        ¿Habrá rendición de cuentas?
+                                    </button>
+                                </h2>
+                                <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                                    <div class="accordion-body">
+                                        Sí. Enviaremos <strong>reportes mensuales</strong> y un <strong>consolidado
+                                            trimestral</strong> de
+                                        finanzas e impacto. Además, mantenemos supervisión pastoral y misionera (ver
+                                        <a href="#cobertura">Cobertura</a>).
+                                        <div class="faq-actions mt-2">
+                                            <span
+                                                class="badge rounded-pill bg-light text-dark me-2">Transparencia</span>
+                                            <button class="btn btn-outline-secondary btn-sm faq-copy"
+                                                data-target="#faq-rendicion">
+                                                <i class="bi bi-link-45deg"></i> Copiar enlace
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Extra ejemplo -->
+                            <div class="accordion-item faq-item" data-tags="mision transparencia"
+                                id="faq-iglesia-local">
+                                <h2 class="accordion-header" id="q4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#a4" aria-expanded="false" aria-controls="a4">
+                                        ¿Trabajan con iglesia local u organización reconocida?
+                                    </button>
+                                </h2>
+                                <div id="a4" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                                    <div class="accordion-body">
+                                        Sí. Nuestra labor se realiza en <strong>sujeción a la iglesia local</strong>
+                                        y
+                                        con
+                                        la guía de
+                                        <strong>organizaciones misioneras confiables</strong>. Más detalles en <a
+                                            href="#cobertura">Cobertura</a>.
+                                        <div class="faq-actions mt-2">
+                                            <span class="badge rounded-pill bg-light text-dark me-2">Misión</span>
+                                            <span
+                                                class="badge rounded-pill bg-light text-dark me-2">Transparencia</span>
+                                            <button class="btn btn-outline-secondary btn-sm faq-copy"
+                                                data-target="#faq-iglesia-local">
+                                                <i class="bi bi-link-45deg"></i> Copiar enlace
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- CTA final -->
+                        <div class="text-center mt-4">
+                            <a href="#contacto" class="btn btn-primary">
+                                <i class="bi bi-chat-dots me-1"></i> Hacer otra pregunta
+                            </a>
+                            <a href="#donaciones" class="btn btn-outline-primary ms-2">
+                                <i class="bi bi-heart me-1"></i> Ver cómo apoyar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GALERÍA (PRO) ===== -->
+        <section id="galeria" class="section-muted">
+            <div class="container">
+                <!-- Encabezado -->
+                <div class="d-flex flex-wrap align-items-center justify-content-between mb-3">
+                    <div class="mb-2">
+                        <span class="text-uppercase small" style="color:var(--olive)">Imágenes</span>
+                        <h2 class="fw-bold mt-1 mb-0">Galería</h2>
+                        <small class="text-secondary">Fuente: <code>content/gallery.json</code>. Si no existe, se
+                            usan las tarjetas del HTML.</small>
+                    </div>
+
+                    <!-- Admin: login + herramientas -->
+                    <div class="d-flex align-items-center gap-2">
+                        <button id="btnAdminLogin" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-shield-lock"></i> Administrar
+                        </button>
+                        <div id="adminTools" class="d-none">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#adminAddModal">
+                                <i class="bi bi-plus-circle"></i> Agregar foto
+                            </button>
+                            <button id="btnExportJson" class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-download"></i> Descargar JSON
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtros -->
+                <div class="d-flex flex-wrap gap-2 justify-content-center mb-3">
+                    <button class="btn btn-outline-primary btn-sm gal-tag active" data-tag="all">Todas</button>
+                    <button class="btn btn-outline-primary btn-sm gal-tag" data-tag="familia">Familia</button>
+                    <button class="btn btn-outline-primary btn-sm gal-tag" data-tag="montenegro">Montenegro</button>
+                    <button class="btn btn-outline-primary btn-sm gal-tag" data-tag="iglesia">Iglesia</button>
+                    <button class="btn btn-outline-primary btn-sm gal-tag" data-tag="servicio">Servicio</button>
+                </div>
+
+                <!-- Grid -->
+                <div id="galleryGrid" class="row g-3">
+                    <!-- Fallback estático (se usará si no hay JSON) -->
+                    <div class="col-6 col-md-4 col-lg-3 gal-item" data-cat="familia">
+                        <figure class="gal-card shimmer" tabindex="0" data-bs-toggle="modal"
+                            data-bs-target="#lightboxModal" data-image="assets/galeria/1.jpg"
+                            data-caption="Familia Quijada Gómez — presentación de proyecto">
+                            <img src="assets/galeria/1.jpg" alt="Familia Quijada Gómez" loading="lazy"
+                                class="gal-img" />
+                            <figcaption class="gal-caption">Familia</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3 gal-item" data-cat="montenegro">
+                        <figure class="gal-card shimmer" tabindex="0" data-bs-toggle="modal"
+                            data-bs-target="#lightboxModal" data-image="assets/galeria/2.jpg"
+                            data-caption="Berane, Montenegro — vista del río Lim">
+                            <img src="assets/galeria/2.jpg" alt="Río en Berane, Montenegro" loading="lazy"
+                                class="gal-img" />
+                            <figcaption class="gal-caption">Montenegro</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3 gal-item" data-cat="iglesia">
+                        <figure class="gal-card shimmer" tabindex="0" data-bs-toggle="modal"
+                            data-bs-target="#lightboxModal" data-image="assets/galeria/3.jpg"
+                            data-caption="Reunión de oración — iglesia local">
+                            <img src="assets/galeria/3.jpg" alt="Reunión de oración" loading="lazy" class="gal-img" />
+                            <figcaption class="gal-caption">Iglesia</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3 gal-item" data-cat="servicio">
+                        <figure class="gal-card shimmer" tabindex="0" data-bs-toggle="modal"
+                            data-bs-target="#lightboxModal" data-image="assets/galeria/4.jpg"
+                            data-caption="Servicio a la comunidad — apoyo práctico">
+                            <img src="assets/galeria/4.jpg" alt="Servicio a la comunidad" loading="lazy"
+                                class="gal-img" />
+                            <figcaption class="gal-caption">Servicio</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Pie con contador -->
+                <div class="text-center mt-3">
+                    <small class="text-secondary">Mostrando <span id="galCount">0</span> foto(s)</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Lightbox -->
+        <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header border-0">
+                        <h6 class="modal-title text-white small" id="lightboxCaption"></h6>
+                        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"
+                            aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body p-0 position-relative">
+                        <img src="" class="img-fluid w-100" alt="Vista ampliada" id="lightboxImage">
+                        <button class="lightbox-nav prev" aria-label="Anterior"><i
+                                class="bi bi-chevron-left"></i></button>
+                        <button class="lightbox-nav next" aria-label="Siguiente"><i
+                                class="bi bi-chevron-right"></i></button>
+                    </div>
+                    <div class="modal-footer border-0 justify-content-between">
+                        <small class="text-secondary" id="lightboxIndex">—</small>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-light btn-sm" id="copyImgLink">
+                                <i class="bi bi-link-45deg me-1"></i>Copiar enlace
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Admin: agregar foto -->
+        <div class="modal fade" id="adminAddModal" tabindex="-1" aria-hidden="true" aria-labelledby="adminAddLabel">
+            <div class="modal-dialog">
+                <form id="adminAddForm" class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title"><i class="bi bi-plus-circle me-1"></i> Sugerir motivo de oración</h5>
+                        <h5 class="modal-title" id="adminAddLabel">Agregar foto a la galería</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-2">
-                            <label class="form-label">Nombre</label>
-                            <input type="text" class="form-control" required>
-                            <div class="invalid-feedback">Escribe tu nombre.</div>
+                            <label class="form-label">Ruta imagen (src)</label>
+                            <input type="text" class="form-control" id="fSrc" placeholder="/assets/galeria/nueva.jpg"
+                                required>
+                            <div class="form-text">Sube el archivo a <code>assets/galeria/</code> y pega la ruta.
+                            </div>
                         </div>
                         <div class="mb-2">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" required>
-                            <div class="invalid-feedback">Email inválido.</div>
+                            <label class="form-label">Miniatura (thumb, opcional)</label>
+                            <input type="text" class="form-control" id="fThumb"
+                                placeholder="/assets/galeria/nueva-thumb.jpg">
                         </div>
                         <div class="mb-2">
-                            <label class="form-label">Motivo</label>
-                            <textarea class="form-control" rows="4"
-                                placeholder="Cuéntanos el motivo (será tratado con discreción)" required></textarea>
-                            <div class="invalid-feedback">Escribe el motivo.</div>
+                            <label class="form-label">Categoría</label>
+                            <select class="form-select" id="fCat">
+                                <option value="familia">Familia</option>
+                                <option value="montenegro">Montenegro</option>
+                                <option value="iglesia">Iglesia</option>
+                                <option value="servicio">Servicio</option>
+                                <option value="otros">Otros</option>
+                            </select>
                         </div>
-                        <small class="text-secondary">Lo recibiremos y oraremos por ello. Si necesitas seguimiento,
-                            indícalo.</small>
+                        <div class="mb-2">
+                            <label class="form-label">Caption</label>
+                            <input type="text" class="form-control" id="fCaption" placeholder="Descripción breve"
+                                required>
+                        </div>
+                        <div class="mb-0">
+                            <label class="form-label">Texto alternativo (alt)</label>
+                            <input type="text" class="form-control" id="fAlt" placeholder="Accesibilidad (recomendado)">
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" type="submit">Enviar motivo</button>
+                        <button class="btn btn-primary" type="submit">Agregar</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
 
 
-    <!-- ===== FAQ (PRO) ===== -->
-    <section id="faq" class="section-muted">
-        <div class="container">
-            <div class="text-center mb-4">
-                <span class="text-uppercase small" style="color:var(--olive)">Dudas comunes</span>
-                <h2 class="fw-bold mt-1">Preguntas frecuentes</h2>
-                <p class="mb-0">Si no ves tu respuesta aquí, escríbenos y con gusto te responderemos.</p>
-            </div>
 
-            <!-- Barra de herramientas FAQ -->
-            <div class="faq-toolbar shadow-soft rounded-4 p-3 mb-4">
-                <div class="row g-3 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-text"><i class="bi bi-search"></i></span>
-                            <input id="faqSearch" type="text" class="form-control"
-                                placeholder="Buscar pregunta por palabra clave…">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
-                            <button class="btn btn-outline-primary btn-sm faq-tag" data-tag="all"
-                                aria-pressed="true">Todas</button>
-                            <button class="btn btn-outline-primary btn-sm faq-tag"
-                                data-tag="donaciones">Donaciones</button>
-                            <button class="btn btn-outline-primary btn-sm faq-tag" data-tag="finanzas">Finanzas</button>
-                            <button class="btn btn-outline-primary btn-sm faq-tag" data-tag="mision">Misión</button>
-                            <button class="btn btn-outline-primary btn-sm faq-tag"
-                                data-tag="transparencia">Transparencia</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Acordeón FAQ -->
-            <div class="row g-5">
-                <div class="col-lg-10 mx-auto">
-                    <div class="accordion" id="faqAcc">
-
-                        <!-- Item 1 -->
-                        <div class="accordion-item faq-item" data-tags="finanzas transparencia donaciones"
-                            id="faq-uso-ofrendas">
-                            <h2 class="accordion-header" id="q1">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#a1" aria-expanded="true" aria-controls="a1">
-                                    ¿Cómo se utilizarán las ofrendas?
-                                </button>
-                            </h2>
-                            <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc">
-                                <div class="accordion-body">
-                                    Se destinan a <strong>idioma</strong>, <strong>vivienda</strong>,
-                                    <strong>movilidad</strong>,
-                                    <strong>materiales</strong> y <strong>proyectos con la iglesia local</strong>.
-                                    Publicaremos reportes
-                                    periódicos y un consolidado trimestral en la sección <a
-                                        href="#cobertura">Cobertura</a>.
-                                    <div class="faq-actions mt-2">
-                                        <span class="badge rounded-pill bg-light text-dark me-2">Finanzas</span>
-                                        <span class="badge rounded-pill bg-light text-dark me-2">Transparencia</span>
-                                        <button class="btn btn-outline-secondary btn-sm faq-copy"
-                                            data-target="#faq-uso-ofrendas">
-                                            <i class="bi bi-link-45deg"></i> Copiar enlace
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 2 -->
-                        <div class="accordion-item faq-item" data-tags="donaciones finanzas" id="faq-aporte-mensual">
-                            <h2 class="accordion-header" id="q2">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
-                                    ¿Puedo comprometer apoyo mensual?
-                                </button>
-                            </h2>
-                            <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-                                <div class="accordion-body">
-                                    Sí. Puedes optar por <strong>suscripción mensual</strong> (ver <a
-                                        href="#donaciones">Donaciones</a>) y
-                                    recibirás reportes, cartas y motivos de oración. Si necesitas ayuda para
-                                    configurarlo, contáctanos en
-                                    <a href="#contacto">Contacto</a>.
-                                    <div class="faq-actions mt-2">
-                                        <span class="badge rounded-pill bg-light text-dark me-2">Donaciones</span>
-                                        <button class="btn btn-outline-secondary btn-sm faq-copy"
-                                            data-target="#faq-aporte-mensual">
-                                            <i class="bi bi-link-45deg"></i> Copiar enlace
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 3 -->
-                        <div class="accordion-item faq-item" data-tags="transparencia finanzas" id="faq-rendicion">
-                            <h2 class="accordion-header" id="q3">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#a3" aria-expanded="false" aria-controls="a3">
-                                    ¿Habrá rendición de cuentas?
-                                </button>
-                            </h2>
-                            <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-                                <div class="accordion-body">
-                                    Sí. Enviaremos <strong>reportes mensuales</strong> y un <strong>consolidado
-                                        trimestral</strong> de
-                                    finanzas e impacto. Además, mantenemos supervisión pastoral y misionera (ver
-                                    <a href="#cobertura">Cobertura</a>).
-                                    <div class="faq-actions mt-2">
-                                        <span class="badge rounded-pill bg-light text-dark me-2">Transparencia</span>
-                                        <button class="btn btn-outline-secondary btn-sm faq-copy"
-                                            data-target="#faq-rendicion">
-                                            <i class="bi bi-link-45deg"></i> Copiar enlace
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Extra ejemplo -->
-                        <div class="accordion-item faq-item" data-tags="mision transparencia" id="faq-iglesia-local">
-                            <h2 class="accordion-header" id="q4">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#a4" aria-expanded="false" aria-controls="a4">
-                                    ¿Trabajan con iglesia local u organización reconocida?
-                                </button>
-                            </h2>
-                            <div id="a4" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-                                <div class="accordion-body">
-                                    Sí. Nuestra labor se realiza en <strong>sujeción a la iglesia local</strong> y con
-                                    la guía de
-                                    <strong>organizaciones misioneras confiables</strong>. Más detalles en <a
-                                        href="#cobertura">Cobertura</a>.
-                                    <div class="faq-actions mt-2">
-                                        <span class="badge rounded-pill bg-light text-dark me-2">Misión</span>
-                                        <span class="badge rounded-pill bg-light text-dark me-2">Transparencia</span>
-                                        <button class="btn btn-outline-secondary btn-sm faq-copy"
-                                            data-target="#faq-iglesia-local">
-                                            <i class="bi bi-link-45deg"></i> Copiar enlace
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- CTA final -->
-                    <div class="text-center mt-4">
-                        <a href="#contacto" class="btn btn-primary">
-                            <i class="bi bi-chat-dots me-1"></i> Hacer otra pregunta
-                        </a>
-                        <a href="#donaciones" class="btn btn-outline-primary ms-2">
-                            <i class="bi bi-heart me-1"></i> Ver cómo apoyar
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- JSON-LD FAQPage (SEO) -->
-        <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"¿Cómo se utilizarán las ofrendas?",
-        "acceptedAnswer":{"@type":"Answer","text":"Se destinan a idioma, vivienda, movilidad, materiales y proyectos con la iglesia local. Se publicarán reportes periódicos y un consolidado trimestral en la sección Cobertura."}
-      },
-      {
-        "@type":"Question",
-        "name":"¿Puedo comprometer apoyo mensual?",
-        "acceptedAnswer":{"@type":"Answer","text":"Sí. Puedes optar por suscripción mensual y recibir reportes, cartas y motivos de oración. Si necesitas ayuda para configurarlo, contáctanos en la sección Contacto."}
-      },
-      {
-        "@type":"Question",
-        "name":"¿Habrá rendición de cuentas?",
-        "acceptedAnswer":{"@type":"Answer","text":"Sí. Enviaremos reportes mensuales y un consolidado trimestral de finanzas e impacto. Además, mantenemos supervisión pastoral y misionera (ver Cobertura)."}
-      },
-      {
-        "@type":"Question",
-        "name":"¿Trabajan con iglesia local u organización reconocida?",
-        "acceptedAnswer":{"@type":"Answer","text":"Sí. La labor se realiza en sujeción a la iglesia local y con la guía de organizaciones misioneras confiables. Más detalles en la sección Cobertura."}
-      }
-    ]
-  }
-  </script>
-    </section>
-
-    <!-- ===== GALERÍA (PRO) ===== -->
-    <section id="galeria" class="section-muted">
-        <div class="container">
-            <div class="text-center mb-4">
-                <span class="text-uppercase small" style="color:var(--olive)">Imágenes</span>
-                <h2 class="fw-bold mt-1">Galería</h2>
-                <p class="mb-0">Sube tus fotos a <code>assets/galeria/</code> y actualiza las rutas y categorías.</p>
-            </div>
-
-            <!-- Filtros -->
-            <div class="d-flex flex-wrap gap-2 justify-content-center mb-4">
-                <button class="btn btn-outline-primary btn-sm gal-tag active" data-tag="all">Todas</button>
-                <button class="btn btn-outline-primary btn-sm gal-tag" data-tag="familia">Familia</button>
-                <button class="btn btn-outline-primary btn-sm gal-tag" data-tag="montenegro">Montenegro</button>
-                <button class="btn btn-outline-primary btn-sm gal-tag" data-tag="iglesia">Iglesia</button>
-                <button class="btn btn-outline-primary btn-sm gal-tag" data-tag="servicio">Servicio</button>
-            </div>
-
-            <!-- Grid -->
-            <div id="galleryGrid" class="row g-3">
-                <!-- Ejemplos: reemplaza src/alt/data-cat/data-caption -->
-                <div class="col-6 col-md-4 col-lg-3 gal-item" data-cat="familia">
-                    <figure class="gal-card shimmer" tabindex="0" data-bs-toggle="modal" data-bs-target="#lightboxModal"
-                        data-image="assets/galeria/1.jpg"
-                        data-caption="Familia Quijada Gómez — presentación de proyecto">
-                        <img src="assets/galeria/1.jpg" alt="Familia Quijada Gómez" loading="lazy" class="gal-img" />
-                        <figcaption class="gal-caption">Familia</figcaption>
-                    </figure>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3 gal-item" data-cat="montenegro">
-                    <figure class="gal-card shimmer" tabindex="0" data-bs-toggle="modal" data-bs-target="#lightboxModal"
-                        data-image="assets/galeria/2.jpg" data-caption="Berane, Montenegro — vista del río Lim">
-                        <img src="assets/galeria/2.jpg" alt="Río en Berane, Montenegro" loading="lazy"
-                            class="gal-img" />
-                        <figcaption class="gal-caption">Montenegro</figcaption>
-                    </figure>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3 gal-item" data-cat="iglesia">
-                    <figure class="gal-card shimmer" tabindex="0" data-bs-toggle="modal" data-bs-target="#lightboxModal"
-                        data-image="assets/galeria/3.jpg" data-caption="Reunión de oración — iglesia local">
-                        <img src="assets/galeria/3.jpg" alt="Reunión de oración" loading="lazy" class="gal-img" />
-                        <figcaption class="gal-caption">Iglesia</figcaption>
-                    </figure>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3 gal-item" data-cat="servicio">
-                    <figure class="gal-card shimmer" tabindex="0" data-bs-toggle="modal" data-bs-target="#lightboxModal"
-                        data-image="assets/galeria/4.jpg" data-caption="Servicio a la comunidad — apoyo práctico">
-                        <img src="assets/galeria/4.jpg" alt="Servicio a la comunidad" loading="lazy" class="gal-img" />
-                        <figcaption class="gal-caption">Servicio</figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <!-- Pie con contador -->
-            <div class="text-center mt-3">
-                <small class="text-secondary">Mostrando <span id="galCount">0</span> foto(s)</small>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal Lightbox mejorado -->
-    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content bg-dark">
-                <div class="modal-header border-0">
-                    <h6 class="modal-title text-white small" id="lightboxCaption"> </h6>
-                    <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"
-                        aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body p-0 position-relative">
-                    <img src="" class="img-fluid w-100" alt="Vista ampliada" id="lightboxImage">
-                    <button class="lightbox-nav prev" aria-label="Anterior"><i class="bi bi-chevron-left"></i></button>
-                    <button class="lightbox-nav next" aria-label="Siguiente"><i
-                            class="bi bi-chevron-right"></i></button>
-                </div>
-                <div class="modal-footer border-0 justify-content-between">
-                    <small class="text-secondary" id="lightboxIndex">1 / 1</small>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-outline-light btn-sm" id="copyImgLink"><i
-                                class="bi bi-link-45deg me-1"></i>Copiar enlace</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- ===== CONTACTO (PRO) ===== -->
-    <section id="contacto" class="section-muted">
-        <div class="container">
-            <div class="row g-5 align-items-stretch">
-
-                <!-- Formulario -->
-                <div class="col-lg-7">
-                    <div class="text-start mb-3">
-                        <span class="text-uppercase small" style="color:var(--olive)">Escríbenos</span>
-                        <h2 class="fw-bold mt-1">Contacto</h2>
-                        <p class="mb-0 text-secondary">Cuéntanos cómo podemos servirte o por qué te gustaría colaborar.
-                            Te respondemos a la brevedad.</p>
-                    </div>
-
-                    <form id="contactForm" class="row g-3 needs-validation bg-white p-4 border rounded-4 shadow-soft"
-                        novalidate>
-                        <!-- Honeypot (anti-spam) -->
-                        <div class="d-none">
-                            <label for="website">No llenar</label>
-                            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="name" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="name" placeholder="Tu nombre y apellido"
-                                required>
-                            <div class="invalid-feedback">Por favor, indica tu nombre.</div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.cl"
-                                required>
-                            <div class="invalid-feedback">Escribe un email válido.</div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="phone" class="form-label">Teléfono (opcional)</label>
-                            <input type="tel" class="form-control" id="phone" placeholder="+56 9 1234 5678"
-                                inputmode="tel">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="topic" class="form-label">Motivo</label>
-                            <select id="topic" class="form-select" required>
-                                <option selected disabled value="">Selecciona una opción…</option>
-                                <option value="oracion">Quiero unirme en oración</option>
-                                <option value="ofrenda">Consulta sobre ofrenda/apoyo</option>
-                                <option value="visita">Visita/servicio</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                            <div class="invalid-feedback">Selecciona un motivo.</div>
-                        </div>
-
-                        <div class="col-12">
-                            <label for="msg" class="form-label">Mensaje</label>
-                            <textarea id="msg" class="form-control" rows="6"
-                                placeholder="Escribe tu mensaje (máx. 800 caracteres)…" maxlength="800"
-                                required></textarea>
-                            <div class="d-flex justify-content-between">
-                                <div class="invalid-feedback">Escribe un mensaje.</div>
-                                <small class="text-secondary"><span id="msgCount">0</span>/800</small>
-                            </div>
-                        </div>
-
-                        <div class="col-12 form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="policy" required>
-                            <label class="form-check-label small" for="policy">
-                                Acepto ser contactad@ según la <a href="#" class="link-primary">política de
-                                    privacidad</a>.
-                            </label>
-                            <div class="invalid-feedback">Debes aceptar para continuar.</div>
-                        </div>
-
-                        <div class="col-12 d-flex flex-wrap gap-2">
-                            <button class="btn btn-primary" type="submit">
-                                <i class="bi bi-envelope-check me-1"></i>Enviar
-                            </button>
-
-                            <!-- WhatsApp pre-llenado con los datos ingresados -->
-                            <a id="waBtn" href="https://wa.me/56912345678" target="_blank"
-                                class="btn btn-outline-secondary">
-                                <i class="bi bi-whatsapp me-1"></i>WhatsApp
-                            </a>
-
-                            <!-- Mailto de respaldo si falla el envío -->
-                            <a id="mailtoBtn" href="mailto:contacto@tudominio.cl" class="btn btn-outline-secondary">
-                                <i class="bi bi-envelope me-1"></i>Email directo
-                            </a>
-                        </div>
-
-                        <div class="col-12">
-                            <small class="text-secondary d-block mt-2">
-                                No compartimos tu información con terceros. Usamos tus datos solo para responder tu
-                                mensaje.
-                            </small>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Tarjeta Equipo + datos -->
-                <div class="col-lg-5">
-                    <div class="p-4 border rounded-4 h-100 bg-white shadow-soft">
-                        <h4 class="fw-bold">
-                            <i class="bi bi-people me-1" style="color:var(--brand-1)"></i>
-                            Nuestro equipo
-                        </h4>
-                        <p class="mb-4">Familia Quijada Gómez — servicio, fidelidad bíblica y amor práctico.</p>
-
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="assets/familia/team-1.jpg" class="rounded-circle" width="64" height="64"
-                                alt="Miembro 1">
-                            <div>
-                                <h6 class="mb-0">Nombre Apellido</h6>
-                                <small class="text-secondary">Rol / Enfoque</small>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="assets/familia/team-2.jpg" class="rounded-circle" width="64" height="64"
-                                alt="Miembro 2">
-                            <div>
-                                <h6 class="mb-0">Nombre Apellido</h6>
-                                <small class="text-secondary">Rol / Enfoque</small>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center gap-3">
-                            <img src="assets/familia/team-3.jpg" class="rounded-circle" width="64" height="64"
-                                alt="Miembro 3">
-                            <div>
-                                <h6 class="mb-0">Nombre Apellido</h6>
-                                <small class="text-secondary">Rol / Enfoque</small>
-                            </div>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <ul class="list-unstyled small mb-3">
-                            <li class="d-flex align-items-start gap-2">
-                                <i class="bi bi-envelope-open"></i>
-                                <span><a href="mailto:contacto@tudominio.cl">contacto@tudominio.cl</a></span>
-                            </li>
-                            <li class="d-flex align-items-start gap-2">
-                                <i class="bi bi-whatsapp"></i>
-                                <span><a href="https://wa.me/56912345678" target="_blank" rel="noopener">+56 9 1234
-                                        5678</a></span>
-                            </li>
-                            <li class="d-flex align-items-start gap-2">
-                                <i class="bi bi-geo-alt"></i>
-                                <span>Berane, Montenegro — en colaboración con iglesia local</span>
-                            </li>
-                        </ul>
-
-                        <!-- Badge de respuesta -->
-                        <div class="d-flex align-items-center gap-2 p-3 rounded-3"
-                            style="background:#fff7ea;border:1px dashed #f1c27a;">
-                            <i class="bi bi-clock-history" style="color:var(--accent)"></i>
-                            <small>Tiempo de respuesta habitual: 24–48h.</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Toast éxito -->
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index:1080">
-        <div id="contactToast" class="toast align-items-center text-bg-success border-0" role="status"
-            aria-live="polite" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body">
-                    ¡Gracias! Recibimos tu mensaje. Te contactaremos pronto.
-                </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                    aria-label="Cerrar"></button>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="site-footer position-relative pt-0">
-        <!-- Wave divider -->
-        <div class="footer-wave" aria-hidden="true">
-            <svg viewBox="0 0 1440 90" preserveAspectRatio="none" focusable="false">
-                <path
-                    d="M0,64L80,80C160,96,320,128,480,128C640,128,800,96,960,90.7C1120,85,1280,107,1360,117.3L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z">
-                </path>
-            </svg>
-        </div>
-
-        <div class="footer-body py-5">
+        <!-- ===== CONTACTO (PRO) ===== -->
+        <section id="contacto" class="section-muted">
             <div class="container">
-                <div class="row g-4">
-                    <!-- Brand & misión -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <img src="assets/logo.png" width="36" height="36" class="rounded" alt="Logo">
-                            <h5 class="text-white mb-0">Familia Quijada Gómez</h5>
-                        </div>
-                        <p class="mb-3">Proyecto misionero en Berane, Montenegro. Obediencia, fidelidad bíblica y
-                            servicio a la comunidad.</p>
+                <div class="row g-5 align-items-stretch">
 
-                        <!-- Suscripción -->
-                        <form class="footer-newsletter needs-validation" novalidate>
-                            <label for="nlEmail" class="form-label small mb-1">Suscríbete a novedades</label>
-                            <div class="input-group input-group-sm">
-                                <input id="nlEmail" type="email" class="form-control" placeholder="tucorreo@ejemplo.cl"
-                                    required>
-                                <button class="btn btn-accent" type="submit"><i class="bi bi-send"></i></button>
-                                <div class="invalid-feedback">Ingresa un email válido.</div>
+                    <!-- Formulario -->
+                    <div class="col-lg-7">
+                        <div class="text-start mb-3">
+                            <span class="text-uppercase small" style="color:var(--olive)">Escríbenos</span>
+                            <h2 class="fw-bold mt-1">Contacto</h2>
+                            <p class="mb-0 text-secondary">Cuéntanos cómo podemos servirte o por qué te gustaría
+                                colaborar.
+                                Te respondemos a la brevedad.</p>
+                        </div>
+
+                        <form id="contactForm" action="backend/send_mail.php" method="POST"
+                            class="row g-3 needs-validation bg-white p-4 border rounded-4 shadow-soft" novalidate>
+
+                            <!-- Honeypot (anti-spam) -->
+                            <div class="d-none">
+                                <label for="website">No llenar</label>
+                                <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
                             </div>
-                            <small class="text-secondary d-block mt-1">Procesado por tu plataforma (ej.
-                                Mailchimp).</small>
+
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Tu nombre y apellido" required>
+                                <div class="invalid-feedback">Por favor, indica tu nombre.</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="tucorreo@ejemplo.cl" required>
+                                <div class="invalid-feedback">Escribe un email válido.</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Teléfono (opcional)</label>
+                                <input type="tel" class="form-control" id="phone" name="phone"
+                                    placeholder="+56 9 1234 5678">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="topic" class="form-label">Motivo</label>
+                                <select id="topic" name="topic" class="form-select" required>
+                                    <option selected disabled value="">Selecciona una opción…</option>
+                                    <option value="oración">Quiero unirme en oración</option>
+                                    <option value="ofrenda">Consulta sobre ofrenda/apoyo</option>
+                                    <option value="visita">Visita/servicio</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                                <div class="invalid-feedback">Selecciona un motivo.</div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="msg" class="form-label">Mensaje</label>
+                                <textarea id="msg" name="msg" class="form-control" rows="6" maxlength="800"
+                                    placeholder="Escribe tu mensaje (máx. 800 caracteres)…" required></textarea>
+                                <div class="d-flex justify-content-between">
+                                    <div class="invalid-feedback">Escribe un mensaje.</div>
+                                    <small class="text-secondary"><span id="msgCount">0</span>/800</small>
+                                </div>
+                            </div>
+
+                            <div class="col-12 form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="policy" name="policy"
+                                    required>
+                                <label class="form-check-label small" for="policy">
+                                    Acepto ser contactad@ según la <a href="#" class="link-primary">política de
+                                        privacidad</a>.
+                                </label>
+                                <div class="invalid-feedback">Debes aceptar para continuar.</div>
+                            </div>
+
+                            <div class="col-12 d-flex flex-wrap gap-2">
+
+                                <!-- BOTÓN PRINCIPAL (ENVÍA AL PHP) -->
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="bi bi-envelope-check me-1"></i>Enviar
+                                </button>
+
+                                <!-- BOTONES OPCIONALES -->
+                                <a id="waBtn" href="https://wa.me/56933639929" target="_blank"
+                                    class="btn btn-outline-secondary">
+                                    <i class="bi bi-whatsapp me-1"></i>WhatsApp
+                                </a>
+
+                                <!-- Importante: botón mailto NO interfiere con el submit -->
+                                <a id="mailtoBtn" href="mailto:contacto@qgproject.cl" class="btn btn-outline-secondary">
+                                    <i class="bi bi-envelope me-1"></i>Email directo
+                                </a>
+                            </div>
+
+                            <div class="col-12">
+                                <small class="text-secondary d-block mt-2">
+                                    No compartimos tu información con terceros. Usamos tus datos solo para responder tu
+                                    mensaje.
+                                </small>
+                            </div>
+
                         </form>
 
-                        <!-- Social -->
-                        <div class="d-flex gap-3 mt-3">
-                            <a href="#" aria-label="Instagram"><i class="bi bi-instagram fs-5"></i></a>
-                            <a href="#" aria-label="Facebook"><i class="bi bi-facebook fs-5"></i></a>
-                            <a href="#" aria-label="YouTube"><i class="bi bi-youtube fs-5"></i></a>
-                        </div>
+
                     </div>
 
-                    <!-- Navegación -->
-                    <div class="col-md-6 col-lg-4">
-                        <h6 class="text-white">Secciones</h6>
-                        <div class="row">
-                            <div class="col-6">
-                                <ul class="list-unstyled small">
-                                    <li><a href="#llamado">Llamado</a></li>
-                                    <li><a href="#familia">Familia</a></li>
-                                    <li><a href="#montenegro">Montenegro</a></li>
-                                    <li><a href="#mision">Misión</a></li>
-                                    <li><a href="#preparacion">Preparación</a></li>
-                                </ul>
+                    <!-- Tarjeta Equipo + datos -->
+                    <div class="col-lg-5">
+                        <div class="p-4 border rounded-4 h-100 bg-white shadow-soft">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h4 class="fw-bold mb-0">
+                                    <i class="bi bi-people me-1" style="color:var(--brand-1)"></i>
+                                    Nuestro equipo
+                                </h4>
+                                <span class="badge rounded-pill"
+                                    style="background:#fff7ea;border:1px solid #f1c27a;color:#5a4a22;">
+                                    Pronto en Berane
+                                </span>
                             </div>
-                            <div class="col-6">
-                                <ul class="list-unstyled small">
-                                    <li><a href="#cobertura">Cobertura</a></li>
-                                    <li><a href="#donaciones">Apoyar</a></li>
-                                    <li><a href="#oracion">Oración</a></li>
-                                    <li><a href="#faq">Preguntas</a></li>
-                                    <li><a href="#contacto">Contacto</a></li>
-                                </ul>
+
+                            <p class="mb-4">
+                                Familia Quijada Gómez — en proceso de envío, para servir en Berane, Montenegro,
+                                junto a la iglesia local y su liderazgo.
+                            </p>
+
+                            <!-- Puedes dejar solo una tarjeta familiar por ahora -->
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <img src="assets/hero/hero.png" class="rounded-circle" width="64" height="64"
+                                    alt="Familia Quijada Gómez">
+                                <div>
+                                    <h6 class="mb-0">Familia Quijada Gómez</h6>
+                                    <small class="text-secondary">Equipo misionero en formación</small>
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <ul class="list-unstyled small mb-3">
+                                <li class="d-flex align-items-start gap-2">
+                                    <i class="bi bi-envelope-open"></i>
+                                    <span><a href="mailto:contacto@qgproject.cl">contacto@qgproject.cl</a></span>
+                                </li>
+                                <li class="d-flex align-items-start gap-2">
+                                    <i class="bi bi-whatsapp"></i>
+                                    <span><a href="https://wa.me/+56933639929" target="_blank" rel="noopener">+56 9 3363
+                                            9929</a></span>
+                                </li>
+                                <li class="d-flex align-items-start gap-2">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <span>Berane, Montenegro — en colaboración con iglesia local</span>
+                                </li>
+                            </ul>
+
+                            <!-- Badge de respuesta -->
+                            <div class="d-flex align-items-center gap-2 p-3 rounded-3"
+                                style="background:#fff7ea;border:1px dashed #f1c27a;">
+                                <i class="bi bi-clock-history" style="color:var(--accent)"></i>
+                                <small>Tiempo de respuesta habitual: 24–48h.</small>
                             </div>
                         </div>
-
-                        <!-- Sellos -->
-                        <div class="d-flex flex-wrap gap-3 mt-2 small text-secondary">
-                            <span class="d-inline-flex align-items-center gap-1"><i class="bi bi-shield-lock"></i>
-                                SSL</span>
-                            <span class="d-inline-flex align-items-center gap-1"><i class="bi bi-receipt"></i>
-                                Comprobante</span>
-                            <span class="d-inline-flex align-items-center gap-1"><i class="bi bi-info-circle"></i>
-                                Transparencia</span>
-                        </div>
                     </div>
 
-                    <!-- Contacto -->
-                    <div class="col-md-6 col-lg-4">
-                        <h6 class="text-white">Contacto</h6>
-                        <ul class="list-unstyled small mb-3">
-                            <li class="d-flex align-items-start gap-2">
-                                <i class="bi bi-envelope-open"></i>
-                                <span><a href="mailto:contacto@tudominio.cl">contacto@tudominio.cl</a></span>
-                            </li>
-                            <li class="d-flex align-items-start gap-2">
-                                <i class="bi bi-whatsapp"></i>
-                                <span><a href="https://wa.me/56912345678" target="_blank" rel="noopener">+56 9 1234
-                                        5678</a></span>
-                            </li>
-                            <li class="d-flex align-items-start gap-2">
-                                <i class="bi bi-geo-alt"></i>
-                                <span>Berane, Montenegro (colaboración con iglesia local)</span>
-                            </li>
-                        </ul>
-
-                        <div class="d-flex gap-2">
-                            <a class="btn btn-primary btn-sm" href="#donaciones"><i class="bi bi-heart-fill me-1"></i>
-                                Apoyar ahora</a>
-                            <a class="btn btn-outline-light btn-sm" href="#contacto"><i
-                                    class="bi bi-chat-dots me-1"></i> Escribir</a>
-                        </div>
-                        <p class="small text-secondary mt-3 mb-0">Publicaremos reportes financieros y de impacto
-                            periódicamente. Si deseas más detalles, escríbenos.</p>
-                    </div>
                 </div>
+        </section>
 
-                <hr class="footer-sep my-4">
-
-                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center small">
-                    <div>&copy; <span id="year"></span> Proyecto Misionero • Todos los derechos reservados</div>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="link-secondary">Políticas</a>
-                        <a href="#" class="link-secondary">Términos</a>
-                        <a href="#top" class="link-secondary">Ir arriba</a>
+        <!-- Toast éxito -->
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index:1080">
+            <div id="contactToast" class="toast align-items-center text-bg-success border-0" role="status"
+                aria-live="polite" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        ¡Gracias! Recibimos tu mensaje. Te contactaremos pronto.
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Back to top -->
-        <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
-            <i class="bi bi-chevron-up"></i>
-        </button>
-    </footer>
-
-    <!-- ===== MODAL LIGHTBOX (mejorado y sin descarga) ===== -->
-    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content bg-dark">
-                <div class="modal-header border-0">
-                    <h6 class="modal-title text-white small" id="lightboxCaption"></h6>
-                    <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
                         aria-label="Cerrar"></button>
                 </div>
-                <div class="modal-body p-0 position-relative">
-                    <img src="" class="img-fluid w-100 user-select-none" alt="Vista ampliada" id="lightboxImage"
-                        draggable="false">
-                    <button class="lightbox-nav prev" aria-label="Anterior"><i class="bi bi-chevron-left"></i></button>
-                    <button class="lightbox-nav next" aria-label="Siguiente"><i
-                            class="bi bi-chevron-right"></i></button>
+            </div>
+        </div>
+
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="site-footer position-relative pt-0">
+            <!-- Wave divider -->
+            <div class="footer-wave" aria-hidden="true">
+                <svg viewBox="0 0 1440 90" preserveAspectRatio="none" focusable="false">
+                    <path
+                        d="M0,64L80,80C160,96,320,128,480,128C640,128,800,96,960,90.7C1120,85,1280,107,1360,117.3L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z">
+                    </path>
+                </svg>
+            </div>
+
+            <div class="footer-body py-5">
+                <div class="container">
+                    <div class="row g-4">
+                        <!-- Brand & misión -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <img src="assets/logo.png" width="36" height="36" class="rounded" alt="Logo">
+                                <h5 class="text-white mb-0">Familia Quijada Gómez</h5>
+                            </div>
+                            <p class="mb-3">Proyecto misionero en Berane, Montenegro. Obediencia, fidelidad bíblica
+                                y
+                                servicio a la comunidad.</p>
+
+                            <!-- Suscripción -->
+                            <form class="footer-newsletter needs-validation" novalidate>
+                                <label for="nlEmail" class="form-label small mb-1">Suscríbete a novedades</label>
+                                <div class="input-group input-group-sm">
+                                    <input id="nlEmail" type="email" class="form-control"
+                                        placeholder="tucorreo@ejemplo.cl" required>
+                                    <button class="btn btn-accent" type="submit"><i class="bi bi-send"></i></button>
+                                    <div class="invalid-feedback">Ingresa un email válido.</div>
+                                </div>
+                                <small class="text-secondary d-block mt-1">Procesado por tu plataforma (ej.
+                                    Mailchimp).</small>
+                            </form>
+
+                            <!-- Social -->
+                            <div class="d-flex gap-3 mt-3">
+                                <a href="#" aria-label="Instagram"><i class="bi bi-instagram fs-5"></i></a>
+                                <a href="#" aria-label="Facebook"><i class="bi bi-facebook fs-5"></i></a>
+                                <a href="#" aria-label="YouTube"><i class="bi bi-youtube fs-5"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Navegación -->
+                        <div class="col-md-6 col-lg-4">
+                            <h6 class="text-white">Secciones</h6>
+                            <div class="row">
+                                <div class="col-6">
+                                    <ul class="list-unstyled small">
+                                        <li><a href="#llamado">Llamado</a></li>
+                                        <li><a href="#familia">Familia</a></li>
+                                        <li><a href="#montenegro">Montenegro</a></li>
+                                        <li><a href="#mision">Misión</a></li>
+                                        <li><a href="#preparacion">Preparación</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-6">
+                                    <ul class="list-unstyled small">
+                                        <li><a href="#cobertura">Cobertura</a></li>
+                                        <li><a href="#donaciones">Apoyar</a></li>
+                                        <li><a href="#oracion">Oración</a></li>
+                                        <li><a href="#faq">Preguntas</a></li>
+                                        <li><a href="#contacto">Contacto</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Sellos -->
+                            <div class="d-flex flex-wrap gap-3 mt-2 small text-secondary">
+                                <span class="d-inline-flex align-items-center gap-1"><i class="bi bi-shield-lock"></i>
+                                    SSL</span>
+                                <span class="d-inline-flex align-items-center gap-1"><i class="bi bi-receipt"></i>
+                                    Comprobante</span>
+                                <span class="d-inline-flex align-items-center gap-1"><i class="bi bi-info-circle"></i>
+                                    Transparencia</span>
+                            </div>
+                        </div>
+
+                        <!-- Contacto -->
+                        <div class="col-md-6 col-lg-4">
+                            <h6 class="text-white">Contacto</h6>
+                            <ul class="list-unstyled small mb-3">
+                                <li class="d-flex align-items-start gap-2">
+                                    <i class="bi bi-envelope-open"></i>
+                                    <span><a href="mailto:contacto@qgproject.cl">contacto@qgproject.cl</a></span>
+                                </li>
+                                <li class="d-flex align-items-start gap-2">
+                                    <i class="bi bi-whatsapp"></i>
+                                    <span><a href="https://wa.me/56933639929" target="_blank" rel="noopener">56 9 3363
+                                            9929</a></span>
+                                </li>
+                                <li class="d-flex align-items-start gap-2">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <span>Berane, Montenegro (colaboración con iglesia local)</span>
+                                </li>
+                            </ul>
+
+                            <div class="d-flex gap-2">
+                                <a class="btn btn-primary btn-sm" href="#donaciones"><i
+                                        class="bi bi-heart-fill me-1"></i>
+                                    Apoyar ahora</a>
+                                <a class="btn btn-outline-light btn-sm" href="#contacto"><i
+                                        class="bi bi-chat-dots me-1"></i> Escribir</a>
+                            </div>
+                            <p class="small text-secondary mt-3 mb-0">Publicaremos reportes financieros y de impacto
+                                periódicamente. Si deseas más detalles, escríbenos.</p>
+                        </div>
+                    </div>
+
+                    <hr class="footer-sep my-4">
+
+                    <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center small">
+                        <div>&copy; <span id="year"></span> Proyecto Misionero • Todos los derechos reservados</div>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="link-secondary">Políticas</a>
+                            <a href="#" class="link-secondary">Términos</a>
+                            <a href="#top" class="link-secondary">Ir arriba</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer border-0 justify-content-between">
-                    <small class="text-secondary" id="lightboxIndex">1 / 1</small>
-                    <button class="btn btn-outline-light btn-sm" id="copyImgLink">
-                        <i class="bi bi-link-45deg me-1"></i> Copiar enlace
-                    </button>
+            </div>
+
+            <!-- Back to top -->
+            <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
+                <i class="bi bi-chevron-up"></i>
+            </button>
+        </footer>
+
+        <!-- ===== MODAL LIGHTBOX (mejorado y sin descarga) ===== -->
+        <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header border-0">
+                        <h6 class="modal-title text-white small" id="lightboxCaption"></h6>
+                        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"
+                            aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body p-0 position-relative">
+                        <img src="" class="img-fluid w-100 user-select-none" alt="Vista ampliada" id="lightboxImage"
+                            draggable="false">
+                        <button class="lightbox-nav prev" aria-label="Anterior"><i
+                                class="bi bi-chevron-left"></i></button>
+                        <button class="lightbox-nav next" aria-label="Siguiente"><i
+                                class="bi bi-chevron-right"></i></button>
+                    </div>
+                    <div class="modal-footer border-0 justify-content-between">
+                        <small class="text-secondary" id="lightboxIndex">1 / 1</small>
+                        <button class="btn btn-outline-light btn-sm" id="copyImgLink">
+                            <i class="bi bi-link-45deg me-1"></i> Copiar enlace
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <!-- JS (al final para evitar pantallas en blanco) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Año dinámico
-        document.getElementById('year')?.textContent = new Date().getFullYear();
-
-        // Validación Bootstrap
-        (() => {
-            const forms = document.querySelectorAll('.needs-validation');
-            Array.from(forms).forEach(form => {
-                form.addEventListener('submit', e => {
-                    if (!form.checkValidity()) { e.preventDefault(); e.stopPropagation(); }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        })();
-
-        // Lightbox
-        const lightboxModal = document.getElementById('lightboxModal');
-        const lightboxImage = document.getElementById('lightboxImage');
-        lightboxModal?.addEventListener('show.bs.modal', (event) => {
-            const trigger = event.relatedTarget; const src = trigger?.getAttribute('data-image');
-            if (src) lightboxImage.src = src;
-        });
-    </script>
-    <script src="js/script.js"></script>
+        <!-- JS (al final para evitar pantallas en blanco) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/script.js"></script>
 </body>
 
 </html>

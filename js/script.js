@@ -1,30 +1,131 @@
+// =========================
+//  UTILIDADES BÁSICAS
+// =========================
+const y = document.getElementById('year');
+if (y) y.textContent = new Date().getFullYear();
 
-// 1) Sombra/cambio al hacer scroll
-const nb = document.getElementById('mainNavbar');
-const onScroll = () => nb.classList.toggle('scrolled', window.scrollY > 16);
-onScroll(); window.addEventListener('scroll', onScroll);
+// Validación Bootstrap (genérica)
+(() => {
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', e => {
+            if (!form.checkValidity()) { e.preventDefault(); e.stopPropagation(); }
+            form.classList.add('was-validated');
+        }, false);
+    });
+})();
 
-// 2) Activo por sección (IntersectionObserver)
-const sections = document.querySelectorAll('section[id], header[id]');
-const links = document.querySelectorAll('.nav-link.pro-link');
-const map = {};
-links.forEach(a => map[a.getAttribute('href').slice(1)] = a);
+// =========================
+//  LIGHTBOX (simple por data-image en triggers)
+// =========================
+(() => {
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImage = document.getElementById('lightboxImage');
+    if (!lightboxModal || !lightboxImage) return;
+    lightboxModal.addEventListener('show.bs.modal', (event) => {
+        const trigger = event.relatedTarget;
+        const src = trigger?.getAttribute('data-image');
+        if (src) lightboxImage.src = src;
+    });
+})();
 
-const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        const id = entry.target.id;
-        if (!map[id]) return;
-        if (entry.isIntersecting) {
-            links.forEach(l => l.classList.remove('active'));
-            map[id].classList.add('active');
+//  NAVBAR & SCROLL EFFECTS
+// =========================
+(() => {
+    const nb = document.getElementById('mainNavbar');
+    const offcanvasEl = document.getElementById('navOffcanvas');
+    if (!nb) return;
+
+    // Sombra / fondo al hacer scroll
+    const onScroll = () => nb.classList.toggle('scrolled', window.scrollY > 16);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // =========================
+    //  Link activo por sección
+    //  (solo menú principal)
+    // =========================
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const links = document.querySelectorAll('#mainNavbar .nav-link.pro-link');
+    const map = {};
+
+    links.forEach(a => {
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && href.length > 1) {
+            map[href.slice(1)] = a;
         }
     });
-}, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
 
-sections.forEach(s => io.observe(s));
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const id = entry.target.id;
+            if (!map[id]) return;
+            if (entry.isIntersecting) {
+                links.forEach(l => l.classList.remove('active'));
+                map[id].classList.add('active');
+            }
+        });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
 
-/* Función para zona de llamado -------------------------- */
-(function () {
+    sections.forEach(s => io.observe(s));
+
+    // =========================
+    //  Scroll suave + cierre menú (desktop + mobile)
+    // =========================
+    const NAV_OFFSET = nb.offsetHeight - 4;
+
+    function scrollToHash(hash) {
+        const target = document.querySelector(hash);
+        if (!target) return;
+
+        const top = target.getBoundingClientRect().top + window.pageYOffset - NAV_OFFSET;
+        window.scrollTo({
+            top,
+            behavior: 'smooth'
+        });
+    }
+
+    function handleNavLinkClick(e) {
+        const href = this.getAttribute('href');
+        if (!href || !href.startsWith('#')) return;
+
+        // evitamos el salto brusco
+        e.preventDefault();
+
+        const insideOffcanvas = offcanvasEl && offcanvasEl.contains(this);
+
+        if (insideOffcanvas && window.bootstrap && window.bootstrap.Offcanvas) {
+            // Cerrar el offcanvas con la API de Bootstrap
+            const offcanvasInstance = window.bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+            offcanvasInstance.hide();
+
+            // Cuando termina la animación, hacemos el scroll suave
+            setTimeout(() => {
+                scrollToHash(href);
+            }, 300);
+        } else {
+            // Desktop u otros enlaces fuera del offcanvas
+            scrollToHash(href);
+        }
+    }
+
+    // Enlaces del navbar (desktop) + enlaces del menú mobile (offcanvas)
+    const navLinks = document.querySelectorAll(
+        '#mainNavbar .nav-link.pro-link[href^="#"], ' +
+        '#navOffcanvas .nav-link.pro-link[href^="#"]'
+    );
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', handleNavLinkClick);
+    });
+
+})();
+
+
+// =========================
+//  LLAMADO / HERO
+// =========================
+(() => {
     const btn = document.getElementById('btnHistoriaLl');
     const el = document.getElementById('historiaLl');
     if (btn && el) {
@@ -32,8 +133,8 @@ sections.forEach(s => io.observe(s));
         el.addEventListener('hidden.bs.collapse', () => btn.textContent = 'Ver historia completa');
     }
 })();
-// ---------------- llamado hasta aqui -------------------------------
-// Parallax sutil del fondo (sin librerías)
+
+// Parallax sutil del hero
 (() => {
     const bg = document.querySelector('.hero-pro .hero-bg');
     if (!bg) return;
@@ -45,405 +146,882 @@ sections.forEach(s => io.observe(s));
     window.addEventListener('scroll', onScroll, { passive: true });
 })();
 
-
-// Calcula % en base a data-status de cada paso
+// =========================
+//  TIMELINE DE PREPARACIÓN (robusta + debug)
+// =========================
 (() => {
-    const items = Array.from(document.querySelectorAll('#preparacion .t-item'));
-    if (!items.length) return;
-    const count = { done: 0, now: 0, next: 0 };
-    items.forEach(el => count[el.dataset.status] = (count[el.dataset.status] || 0) + 1);
+    const scope = document.getElementById('preparacion');
+    if (!scope) return;
+
+    const items = scope.querySelectorAll('.timeline-pro .t-item');
+    const prepBar = scope.querySelector('#prepBar');
+    const prepCounter = scope.querySelector('#prepCounter');
+
+    // --- DEBUG INICIAL ---
+    console.log('[Prep] encontrados .t-item =', items.length);
+    if (!items.length || !prepBar || !prepCounter) {
+        console.warn('[Prep] Falta algo:', { items: items.length, prepBar: !!prepBar, prepCounter: !!prepCounter });
+        return;
+    }
+
+    let done = 0, now = 0, next = 0;
+
+    items.forEach((it, idx) => {
+        // 1) dataset/status directo
+        let s = (it.dataset?.status || it.getAttribute('data-status') || '').trim().toLowerCase();
+
+        // 2) si no existe, intentar inferir del badge interno
+        if (!s) {
+            const badge = it.querySelector('.t-badge');
+            if (badge) {
+                if (badge.classList.contains('done')) s = 'done';
+                else if (badge.classList.contains('now')) s = 'now';
+                else if (badge.classList.contains('next')) s = 'next';
+            }
+        }
+
+        // 3) normalizar variantes comunes
+        if (s === 'completado') s = 'done';
+        if (s === 'en curso' || s === 'curso' || s === 'progress') s = 'now';
+        if (s === 'proximo' || s === 'próximo' || s === 'pending') s = 'next';
+
+        // 4) conteo
+        if (s === 'done') done++;
+        else if (s === 'now') now++;
+        else next++;
+
+        console.log(`[Prep][${idx}] data-status=`, it.getAttribute('data-status'), '→ usado:', s);
+    });
+
     const total = items.length;
-    const doneEq = count.done + count.now * 0.5; // en curso vale medio
-    const pct = Math.round((doneEq / total) * 100);
-    const bar = document.getElementById('prepBar');
-    const counter = document.getElementById('prepCounter');
-    if (bar) { bar.style.width = pct + '%'; bar.setAttribute('aria-valuenow', pct); }
-    if (counter) { counter.textContent = `${count.done + count.now}/${total}`; }
+    const percent = Math.round(((done + 0.5 * now) / total) * 100);
+
+    // pintar UI
+    prepBar.style.width = percent + '%';
+    prepBar.setAttribute('aria-valuenow', String(percent));
+    prepCounter.textContent = `${done}/${total} (${percent}%)`;
+
+    console.log('[Prep] totales => done:', done, 'now:', now, 'next:', next, 'percent:', percent);
+
+    // Reveal on scroll
+    const io2 = ('IntersectionObserver' in window)
+        ? new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in-view');
+                    io2.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.15 })
+        : null;
+
+    items.forEach(el => io2 ? io2.observe(el) : el.classList.add('in-view'));
 })();
 
+// ==============================
+//  ORACIÓN – Motivos interactivos
+// ==============================
+(function () {
+    const grid = document.getElementById('oracionGrid');
+    if (!grid) return; // sección no presente
 
-// Compartir enlace (donaciones)
-document.getElementById('shareLinkDon')?.addEventListener('click', async (e) => {
-    e.preventDefault();
-    const shareData = { title: 'Proyecto Misionero — Montenegro', text: 'Conoce y apoya este proyecto', url: window.location.href };
-    try {
-        if (navigator.share) { await navigator.share(shareData); }
-        else { await navigator.clipboard.writeText(shareData.url); alert('Enlace copiado al portapapeles'); }
-    } catch (_) { }
-});
+    const STORAGE_KEY = 'qg_oracionLikes';
 
-// Selector de montos
-const chips = Array.from(document.querySelectorAll('.amt-chip'));
-const input = document.getElementById('amountInput');
-chips.forEach(ch => {
-    ch.addEventListener('click', () => {
-        chips.forEach(c => c.classList.remove('active'));
-        ch.classList.add('active');
-        const val = parseInt(ch.dataset.amount, 10);
-        input.value = val > 0 ? val : '';
-    });
-});
+    // ---------- Utilidades de estado (likes) ----------
+    function loadLikes() {
+        try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            return raw ? JSON.parse(raw) : {};
+        } catch (err) {
+            console.warn('No se pudieron cargar los likes de oración.', err);
+            return {};
+        }
+    }
 
-// Toggle Única/Mensual: solo cambia texto/etiquetas (los links reales se configurarán en la pasarela)
-const unico = document.getElementById('aporteUnico');
-const mensual = document.getElementById('aporteMensual');
-const btnMP = document.getElementById('btnMP');
-const btnK = document.getElementById('btnKhipu');
+    function saveLikes(state) {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (err) {
+            console.warn('No se pudieron guardar los likes de oración.', err);
+        }
+    }
 
-function updateButtons() {
-    const isMensual = mensual.checked;
-    btnMP.textContent = isMensual ? 'Suscribirme por Mercado Pago' : 'Donar con Mercado Pago';
-    btnK.textContent = isMensual ? 'Suscripción con Khipu (si aplica)' : 'Donar con Khipu';
-    // Si tienes URLs distintas para mensual, cámbialas aquí:
-    // btnMP.href = isMensual ? 'https://mpago.la/LINK_MENSUAL' : 'https://mpago.la/TULINK';
-    // btnK.href  = isMensual ? 'https://khipu.com/payment/link/LINK_MENSUAL' : 'https://khipu.com/payment/link/TULINK';
-}
-[unico, mensual].forEach(r => r?.addEventListener('change', updateButtons));
-updateButtons();
+    const likesState = loadLikes();
 
+    // ---------- Inicializar tarjetas ----------
+    const cards = Array.from(grid.querySelectorAll('.oracion-card'));
 
-// --- Validación Bootstrap (por si no la tienes aún en el sitio)
-(() => {
-    const forms = document.querySelectorAll('.needs-validation');
-    Array.from(forms).forEach(form => {
-        form.addEventListener('submit', event => {
-            if (!form.checkValidity()) { event.preventDefault(); event.stopPropagation(); }
-            form.classList.add('was-validated');
-        }, false);
-    });
-})();
-
-// --- Contadores "Estoy orando" (localStorage)
-(function initPrayCounters() {
-    const cards = document.querySelectorAll('.pray-card');
     cards.forEach(card => {
-        const key = 'pray_' + card.dataset.key;
-        const countEl = card.querySelector('.pray-count');
-        const btnPray = card.querySelector('.btn-pray');
-        const btnShare = card.querySelector('.btn-share');
+        const id = card.dataset.oracionId || '';
+        const likeBtn = card.querySelector('.btn-like-oracion');
+        const likeCountEl = card.querySelector('.like-count');
+        const joinBtn = card.querySelector('.btn-unirse-oracion');
+        const shareBtn = card.querySelector('.btn-icon-share-oracion');
+        const title = (card.querySelector('h5')?.textContent || '').trim();
+        const bodyText = (card.querySelector('p')?.textContent || '').trim();
 
-        // Inicializa
-        const current = parseInt(localStorage.getItem(key) || '0', 10);
-        if (countEl) countEl.textContent = current;
+        if (!likeBtn || !likeCountEl) return;
 
-        // Incrementar
-        btnPray?.addEventListener('click', () => {
-            const val = parseInt(localStorage.getItem(key) || '0', 10) + 1;
-            localStorage.setItem(key, String(val));
-            if (countEl) countEl.textContent = val;
-            btnPray.classList.add('active');
-            setTimeout(() => btnPray.classList.remove('active'), 600);
-        });
-
-        // Compartir
-        btnShare?.addEventListener('click', async () => {
-            const title = 'Punto de oración — Proyecto Misionero';
-            const text = `${card.querySelector('h6')?.textContent} — ${card.querySelector('p')?.textContent}`;
-            const url = window.location.href.split('#')[0] + '#oracion';
-            try {
-                if (navigator.share) { await navigator.share({ title, text, url }); }
-                else { await navigator.clipboard.writeText(`${title}\n${text}\n${url}`); alert('Motivo copiado'); }
-            } catch (_) { }
-        });
-    });
-})();
-
-// --- Motivo del día
-(function setOracionDelDia() {
-    const labels = Array.from(document.querySelectorAll('#oracionGrid .pray-card h6')).map(n => n.textContent.trim());
-    const labelEl = document.getElementById('oracionDelDiaLabel');
-    if (!labels.length || !labelEl) return;
-    const idx = new Date().getDate() % labels.length; // rota por día del mes
-    labelEl.textContent = labels[idx];
-})();
-
-
-// --- Filtro por texto
-(function faqSearch() {
-    const input = document.getElementById('faqSearch');
-    const items = Array.from(document.querySelectorAll('.faq-item'));
-    if (!input) return;
-    input.addEventListener('input', () => {
-        const q = input.value.trim().toLowerCase();
-        items.forEach(it => {
-            const txt = it.innerText.toLowerCase();
-            it.style.display = txt.includes(q) ? '' : 'none';
-        });
-    });
-})();
-
-// --- Filtro por etiqueta
-(function faqTags() {
-    const tags = document.querySelectorAll('.faq-tag');
-    const items = Array.from(document.querySelectorAll('.faq-item'));
-    tags.forEach(btn => {
-        btn.addEventListener('click', () => {
-            tags.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const tag = btn.dataset.tag;
-            items.forEach(it => {
-                if (tag === 'all') { it.style.display = ''; return; }
-                const its = (it.dataset.tags || '').split(' ');
-                it.style.display = its.includes(tag) ? '' : 'none';
-            });
-        });
-    });
-})();
-
-// --- Copiar enlace a una pregunta
-(function faqCopyLink() {
-    document.querySelectorAll('.faq-copy').forEach(btn => {
-        btn.addEventListener('click', async () => {
-            const target = btn.getAttribute('data-target');
-            const el = document.querySelector(target);
-            if (!el?.id) return;
-            const url = `${location.origin}${location.pathname}#${el.id}`;
-            try {
-                await navigator.clipboard.writeText(url);
-                btn.innerHTML = '<i class="bi bi-check2"></i> Enlace copiado';
-                setTimeout(() => btn.innerHTML = '<i class="bi bi-link-45deg"></i> Copiar enlace', 1600);
-            } catch (_) { /* ignore */ }
-        });
-    });
-})();
-
-
-// Filtros por categoría + contador
-(function galleryFilters() {
-    const tags = document.querySelectorAll('.gal-tag');
-    const items = document.querySelectorAll('.gal-item');
-    const count = document.getElementById('galCount');
-    const updateCount = () => count && (count.textContent = [...items].filter(i => i.style.display !== 'none').length);
-
-    tags.forEach(btn => {
-        btn.addEventListener('click', () => {
-            tags.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const tag = btn.dataset.tag;
-            items.forEach(it => {
-                it.style.display = (tag === 'all' || it.dataset.cat === tag) ? '' : 'none';
-            });
-            updateCount();
-        });
-    });
-    // inicial
-    updateCount();
-})();
-
-// Shimmer: quitar cuando cargue la imagen
-document.querySelectorAll('.gal-card .gal-img').forEach(img => {
-    if (img.complete) { img.classList.add('loaded'); img.closest('.gal-card')?.classList.remove('shimmer'); }
-    img.addEventListener('load', () => {
-        img.classList.add('loaded');
-        img.closest('.gal-card')?.classList.remove('shimmer');
-    });
-});
-
-// Lightbox con navegación y utilidades
-(function lightbox() {
-    const modal = document.getElementById('lightboxModal');
-    const imgEl = document.getElementById('lightboxImage');
-    const capEl = document.getElementById('lightboxCaption');
-    const idxEl = document.getElementById('lightboxIndex');
-    const prevBtn = modal.querySelector('.lightbox-nav.prev');
-    const nextBtn = modal.querySelector('.lightbox-nav.next');
-    const copyBtn = document.getElementById('copyImgLink');
-    const dlBtn = document.getElementById('downloadImg');
-
-    const cards = [...document.querySelectorAll('#galleryGrid .gal-card')];
-    let current = 0;
-
-    function openAt(i) {
-        current = (i + cards.length) % cards.length;
-        const card = cards[current];
-        const src = card.getAttribute('data-image');
-        const cap = card.getAttribute('data-caption') || card.querySelector('.gal-caption')?.textContent || '';
-        imgEl.src = src; capEl.textContent = cap; idxEl.textContent = (current + 1) + ' / ' + cards.length;
-    }
-
-    cards.forEach((card, i) => {
-        card.addEventListener('click', () => openAt(i));
-        card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openAt(i); } });
-    });
-
-    prevBtn.addEventListener('click', () => openAt(current - 1));
-    nextBtn.addEventListener('click', () => openAt(current + 1));
-
-    // Teclado dentro del modal
-    modal.addEventListener('shown.bs.modal', () => {
-        function onKey(e) {
-            if (e.key === 'ArrowLeft') prevBtn.click();
-            if (e.key === 'ArrowRight') nextBtn.click();
+        // --- Estado inicial de likes (por navegador) ---
+        const initialState = likesState[id] || { count: 0, liked: false };
+        likeCountEl.textContent = initialState.count;
+        if (initialState.liked) {
+            likeBtn.classList.add('active');
         }
-        window.addEventListener('keydown', onKey);
-        modal.addEventListener('hidden.bs.modal', () => window.removeEventListener('keydown', onKey), { once: true });
+
+        // --- Manejo de "Me gusta" ---
+        likeBtn.addEventListener('click', () => {
+            const current = likesState[id] || { count: 0, liked: false };
+
+            if (current.liked) {
+                current.liked = false;
+                current.count = Math.max(0, current.count - 1);
+                likeBtn.classList.remove('active');
+            } else {
+                current.liked = true;
+                current.count += 1;
+                likeBtn.classList.add('active');
+            }
+
+            likesState[id] = current;
+            likeCountEl.textContent = current.count;
+            saveLikes(likesState);
+        });
+
+        // --- Botón "Unirme" -> Contacto prellenado ---
+        if (joinBtn) {
+            joinBtn.addEventListener('click', () => {
+                const contactoSection = document.getElementById('contacto');
+                if (contactoSection) {
+                    contactoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    window.location.hash = '#contacto';
+                }
+
+                const topicSelect = document.getElementById('topic');
+                const msgInput = document.getElementById('msg');
+
+                if (topicSelect) {
+                    if ([...topicSelect.options].some(opt => opt.value === 'oracion')) {
+                        topicSelect.value = 'oracion';
+                    }
+                }
+
+                if (msgInput) {
+                    const base = `Hola, me gustaría unirme en oración por este motivo:\n\n"${title}"\n\n`;
+                    const detalle = bodyText ? `${bodyText}\n\n` : '';
+                    if (!msgInput.value) {
+                        msgInput.value = base + detalle;
+                    } else {
+                        msgInput.value += `\n\n${base}${detalle}`;
+                    }
+                    msgInput.focus();
+                }
+            });
+        }
+
+        // --- Botón de compartir ---
+        if (shareBtn) {
+            shareBtn.addEventListener('click', async () => {
+                const shareText =
+                    `${title}\n\n${bodyText}\n\nMotivo de oración — Berane`;
+                const shareUrl = window.location.origin + window.location.pathname + '#oracion';
+                const shareData = {
+                    title: 'Motivo de oración',
+                    text: shareText,
+                    url: shareUrl
+                };
+
+                if (navigator.share) {
+                    try {
+                        await navigator.share(shareData);
+                    } catch (err) {
+                        if (err && err.name !== 'AbortError') {
+                            console.warn('No se pudo compartir el motivo.', err);
+                        }
+                    }
+                    return;
+                }
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    try {
+                        await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+                        alert('Texto copiado para que puedas compartirlo en tus redes.');
+                    } catch (err) {
+                        console.warn('No se pudo copiar al portapapeles.', err);
+                        prompt('Copia este texto para compartir:', `${shareText}\n${shareUrl}`);
+                    }
+                } else {
+                    prompt('Copia este texto para compartir:', `${shareText}\n${shareUrl}`);
+                }
+            });
+        }
     });
 
-    // Copiar enlace directo a la imagen
-    copyBtn.addEventListener('click', async () => {
+    // ---------- Motivo del día ----------
+    (function setMotivoDelDia() {
+        const label = document.getElementById('oracionDelDiaLabel');
+        if (!label || cards.length === 0) return;
+
+        const today = new Date();
+        const dayKey = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        let index = 0;
+
+        for (let i = 0; i < dayKey.length; i++) {
+            index = (index + dayKey.charCodeAt(i)) % cards.length;
+        }
+
+        const card = cards[index];
+        const title = (card.querySelector('h5')?.textContent || '').trim();
+
+        label.textContent = title || 'Motivo especial de oración';
+    })();
+
+})();
+
+
+/// =========================
+//  DONACIONES
+// =========================
+(function () {
+    // --- Compartir sección
+    const shareBtn = document.getElementById('shareLinkDon');
+    shareBtn?.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const shareData = {
+            title: 'Proyecto Misionero — Montenegro',
+            text: 'Conoce y apoya este proyecto',
+            url: window.location.origin + window.location.pathname + '#donaciones'
+        };
         try {
-            await navigator.clipboard.writeText(imgEl.src);
-            copyBtn.innerHTML = '<i class="bi bi-check2"></i> Copiado';
-            setTimeout(() => copyBtn.innerHTML = '<i class="bi bi-link-45deg me-1"></i>Copiar enlace', 1400);
+            if (navigator.share) { await navigator.share(shareData); }
+            else {
+                await navigator.clipboard.writeText(shareData.url);
+                alert('Enlace copiado al portapapeles');
+            }
         } catch (_) { }
     });
 
-    // Descargar imagen (respeta CORS si está local/permitido)
-    dlBtn.addEventListener('click', () => {
-        const a = document.createElement('a');
-        a.href = imgEl.src;
-        a.download = imgEl.src.split('/').pop() || 'imagen.jpg';
-        document.body.appendChild(a); a.click(); a.remove();
-    });
-})();
+    // --- Utilidades CLP
+    const fmtCLP = (n) => new Intl.NumberFormat('es-CL', {
+        style: 'currency',
+        currency: 'CLP',
+        maximumFractionDigits: 0
+    }).format(n);
 
+    const parseNum = (str) => Number(String(str).replace(/[^\d]/g, '')) || 0;
 
-// Año dinámico
-document.getElementById('year')?.textContent = new Date().getFullYear();
+    // --- Montos rápidos
+    const chips = Array.from(document.querySelectorAll('.amt-chip'));
+    const input = document.getElementById('amountInput');
 
-// Validación mínima newsletter
-(() => {
-    const forms = document.querySelectorAll('.footer-newsletter.needs-validation');
-    Array.from(forms).forEach(form => {
-        form.addEventListener('submit', e => {
-            if (!form.checkValidity()) { e.preventDefault(); e.stopPropagation(); }
-            form.classList.add('was-validated');
-            // TODO: reemplazar por fetch a tu endpoint (Mailchimp/ConvertKit)
-            // e.preventDefault();
-        }, false);
-    });
-})();
-
-// Back to top
-(function backToTop() {
-    const btn = document.getElementById('backToTop');
-    if (!btn) return;
-    const onScroll = () => {
-        if (window.scrollY > 400) { btn.style.display = 'flex'; }
-        else { btn.style.display = 'none'; }
+    const applyValue = (val) => {
+        input.value = val ? fmtCLP(val).replace('$', '').trim() : '';
+        input.dispatchEvent(new Event('input'));
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    onScroll();
-})();
 
-// Lightbox (si usas el bloque de galería pro, esto reutiliza su estado)
-(function lightboxFooterGlue() {
-    const modal = document.getElementById('lightboxModal');
-    if (!modal) return;
-    const imgEl = document.getElementById('lightboxImage');
-    const capEl = document.getElementById('lightboxCaption');
-    const idxEl = document.getElementById('lightboxIndex');
-    const prevBtn = modal.querySelector('.lightbox-nav.prev');
-    const nextBtn = modal.querySelector('.lightbox-nav.next');
-    const copyBtn = document.getElementById('copyImgLink');
-
-    // Disuadir descarga
-    [imgEl].forEach(el => {
-        el.setAttribute('draggable', 'false');
-        el.addEventListener('contextmenu', e => e.preventDefault());
-        el.addEventListener('dragstart', e => e.preventDefault());
+    chips.forEach(ch => {
+        ch.addEventListener('click', () => {
+            chips.forEach(c => c.classList.remove('active'));
+            ch.classList.add('active');
+            const val = parseInt(ch.dataset.amount, 10);
+            applyValue(val > 0 ? val : 0);
+            input.focus();
+        });
     });
 
-    // Si ya tienes la inicialización en la sección de galería, no repitas esto.
-    // Aquí se incluye una versión defensiva mínima por si el footer se usa aislado.
-    const cards = [...document.querySelectorAll('#galleryGrid .gal-card')];
-    let current = 0;
-    function openAt(i) {
-        if (!cards.length) return;
-        current = (i + cards.length) % cards.length;
-        const card = cards[current];
-        imgEl.src = card.getAttribute('data-image');
-        capEl.textContent = card.getAttribute('data-caption') || card.querySelector('.gal-caption')?.textContent || '';
-        idxEl.textContent = (current + 1) + ' / ' + cards.length;
+    // Formateo “mientras escribe”
+    if (input) {
+        input.addEventListener('input', () => {
+            const raw = parseNum(input.value);
+            input.value = raw ? fmtCLP(raw).replace('$', '').trim() : '';
+            requestAnimationFrame(() => input.setSelectionRange(input.value.length, input.value.length));
+        });
     }
-    cards.forEach((card, i) => card.addEventListener('click', () => openAt(i)));
-    prevBtn?.addEventListener('click', () => openAt(current - 1));
-    nextBtn?.addEventListener('click', () => openAt(current + 1));
 
-    modal.addEventListener('shown.bs.modal', () => {
-        function onKey(e) {
-            if (e.key === 'ArrowLeft') prevBtn?.click();
-            if (e.key === 'ArrowRight') nextBtn?.click();
+    // --- Toggle Única / Mensual + botones
+    const unico = document.getElementById('aporteUnico');
+    const mensual = document.getElementById('aporteMensual');
+    const btnMP = document.getElementById('btnMP');
+    const btnK = document.getElementById('btnKhipu');
+
+    function updateButtons() {
+        const isMensual = mensual?.checked;
+
+        if (btnMP) {
+            // Solo cambiamos el texto; el link real vendrá desde el backend
+            btnMP.textContent = isMensual
+                ? 'Suscribirme por Mercado Pago'
+                : 'Donar con Mercado Pago';
         }
-        window.addEventListener('keydown', onKey);
-        modal.addEventListener('hidden.bs.modal', () => window.removeEventListener('keydown', onKey), { once: true });
-    });
 
-    copyBtn?.addEventListener('click', async () => {
-        try {
-            await navigator.clipboard.writeText(imgEl.src);
-            copyBtn.innerHTML = '<i class="bi bi-check2"></i> Copiado';
-            setTimeout(() => copyBtn.innerHTML = '<i class="bi bi-link-45deg me-1"></i> Copiar enlace', 1400);
-        } catch (_) { }
-    });
+        if (btnK) {
+            // Khipu puede seguir usando los data-href fijos
+            btnK.textContent = isMensual
+                ? 'Suscripción con Khipu (si aplica)'
+                : 'Donar con Khipu';
+
+            const href = isMensual ? btnK.dataset.hrefMonth : btnK.dataset.hrefOnce;
+            if (href) btnK.href = href;
+        }
+    }
+
+    [unico, mensual].forEach(r => r?.addEventListener('change', updateButtons));
+    updateButtons();
+
+    // --- Click en "Donar con Mercado Pago" con monto dinámico
+    if (btnMP) {
+        btnMP.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            const rawAmount = parseNum(input?.value || '');
+            if (!rawAmount || rawAmount <= 0) {
+                alert('Por favor, selecciona o escribe un monto de ofrenda antes de continuar.');
+                if (input) input.focus();
+                return;
+            }
+
+            const isMensual = mensual?.checked;
+            // Opcional: puedes validar un mínimo, ej. 1000 CLP
+            if (rawAmount < 1000) {
+                if (!confirm(`El monto es ${fmtCLP(rawAmount)}. ¿Quieres continuar igualmente?`)) {
+                    return;
+                }
+            }
+
+            try {
+                btnMP.disabled = true;
+                btnMP.textContent = isMensual
+                    ? 'Creando suscripción...'
+                    : 'Creando enlace de pago...';
+
+                const res = await fetch('backend/mp_preference.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        amount: rawAmount,
+                        type: isMensual ? 'monthly' : 'once'
+                    })
+                });
+
+                const data = await res.json();
+
+                if (!data.success || !data.init_point) {
+                    console.warn('Respuesta MP:', data);
+                    alert('No se pudo iniciar el pago en Mercado Pago. Intenta nuevamente más tarde.');
+                    return;
+                }
+
+                // Redirigimos al checkout de Mercado Pago con el monto ya configurado
+                window.location.href = data.init_point;
+
+            } catch (err) {
+                console.error('Error al crear preferencia MP:', err);
+                alert('Ocurrió un error al conectar con Mercado Pago. Intenta nuevamente.');
+            } finally {
+                btnMP.disabled = false;
+                updateButtons();
+            }
+        });
+    }
 })();
 
-// Validación Bootstrap + contador de caracteres + toasts + prefill WhatsApp/mailto (sin backend)
-(() => {
+
+(function () {
     const form = document.getElementById('contactForm');
     if (!form) return;
 
-    const nameEl = document.getElementById('name');
-    const emailEl = document.getElementById('email');
-    const phoneEl = document.getElementById('phone');
-    const topicEl = document.getElementById('topic');
-    const msgEl = document.getElementById('msg');
-    const msgCount = document.getElementById('msgCount');
-    const policyEl = document.getElementById('policy');
-    const honeypot = document.getElementById('website');
-
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const topicSelect = document.getElementById('topic');
+    const msgInput = document.getElementById('msg');
     const waBtn = document.getElementById('waBtn');
     const mailtoBtn = document.getElementById('mailtoBtn');
 
-    // Contador de caracteres
-    const updateCount = () => msgCount && (msgCount.textContent = (msgEl.value || '').length);
-    msgEl.addEventListener('input', updateCount); updateCount();
+    const CONTACT_EMAIL = 'contacto@qgproject.cl';
 
-    // Prefill WhatsApp y mailto (no envía el form, solo ofrece alternativas)
-    function buildPrefills() {
-        const name = (nameEl.value || '').trim();
-        const email = (emailEl.value || '').trim();
-        const phone = (phoneEl.value || '').trim();
-        const topic = topicEl.value || '';
-        const message = (msgEl.value || '').trim();
-
-        const texto = `Hola, soy ${name || '—'}. Motivo: ${topic || '—'}.\nEmail: ${email || '—'}${phone ? `\nTel: ${phone}` : ''}\n\nMensaje:\n${message}`;
-        const encoded = encodeURIComponent(texto);
-
-        // Cambia el número por el tuyo real
-        waBtn.href = `https://wa.me/56912345678?text=${encoded}`;
-        // Cambia el correo por el tuyo real
-        mailtoBtn.href = `mailto:contacto@tudominio.cl?subject=${encodeURIComponent('Contacto desde el sitio')}&body=${encoded}`;
+    function getTopicText() {
+        if (!topicSelect) return 'Contacto desde el sitio';
+        const opt = topicSelect.options[topicSelect.selectedIndex];
+        return opt && opt.text ? opt.text : 'Contacto desde el sitio';
     }
-    [nameEl, emailEl, phoneEl, topicEl, msgEl].forEach(el => el.addEventListener('input', buildPrefills));
-    buildPrefills();
 
-    // Envío (simulado / preparado para fetch). Puedes integrar Formspree/Netlify/etc.
-    form.addEventListener('submit', async (event) => {
-        if (!form.checkValidity()) {
-            event.preventDefault(); event.stopPropagation();
-        } else {
-            // Anti-spam simple
-            if (honeypot && honeypot.value) {
-                event.preventDefault(); event.stopPropagation();
-                return; // Bot descartado
-            }
-            // Aquí podrías hacer fetch a tu endpoint:
-            // event.preventDefault();
-            // await fetch('TU_ENDPOINT', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({...})});
+    function buildBodyLines() {
+        return [
+            `Nombre: ${nameInput?.value || '-'}`,
+            `Email: ${emailInput?.value || '-'}`,
+            `Teléfono: ${phoneInput?.value || '-'}`,
+            `Motivo: ${getTopicText()}`,
+            '',
+            'Mensaje:',
+            msgInput?.value || '-'
+        ];
+    }
 
-            // Toast de éxito
-            try {
-                const toastEl = document.getElementById('contactToast');
-                const toast = new bootstrap.Toast(toastEl);
-                toast.show();
-            } catch (_) { }
+    function updateLinks() {
+        const subject = encodeURIComponent(`Contacto — ${getTopicText()}`);
+        const body = encodeURIComponent(buildBodyLines().join('\n'));
 
-            // Limpieza
-            // form.reset();
-            // updateCount();
+        if (mailtoBtn) {
+            mailtoBtn.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
         }
-        form.classList.add('was-validated');
-    }, false);
-})();
+
+        if (waBtn) {
+            const waNumber = '56933639929';
+            const waText = encodeURIComponent(
+                `Hola, soy ${nameInput?.value || '(sin nombre)'}.\n\n` +
+                buildBodyLines().join('\n')
+            );
+            waBtn.href = `https://wa.me/${waNumber}?text=${waText}`;
+        }
+    }
+
+    [nameInput, emailInput, phoneInput, topicSelect, msgInput].forEach(el => {
+        if (el) el.addEventListener('input', updateLinks);
+    });
+
+    /* form.addEventListener('submit', function (e) {
+         e.preventDefault();
+         form.classList.add('was-validated');
+
+         if (!form.checkValidity()) {
+             return;
+         }
+
+         updateLinks();
+         if (mailtoBtn) {
+             mailtoBtn.click();
+         }
+     });
+
+     updateLinks();
+ })(); */
+
+    /* =========================
+       GALERÍA JSON + ADMIN SIMPLE
+       ========================= */
+    (function galleryInit() {
+        var grid = document.getElementById('galleryGrid');
+        if (!grid) return;
+
+        var jsonData = { images: [] };
+        var usingJSON = false;
+        var cards = [];
+        var adminUnlocked = false;
+
+        function renderFromJSON(images) {
+            var frag = document.createDocumentFragment();
+            images.forEach(function (img) {
+                var col = document.createElement('div');
+                col.className = 'col-6 col-md-4 col-lg-3 gal-item';
+                col.setAttribute('data-cat', (img.category || 'otros').toLowerCase());
+
+                var fig = document.createElement('figure');
+                fig.className = 'gal-card shimmer';
+                fig.setAttribute('tabindex', '0');
+                fig.setAttribute('data-bs-toggle', 'modal');
+                fig.setAttribute('data-bs-target', '#lightboxModal');
+                fig.setAttribute('data-image', img.src);
+                fig.setAttribute('data-caption', img.caption || '');
+
+                var im = document.createElement('img');
+                im.className = 'gal-img';
+                im.src = img.thumb || img.src;
+                im.alt = img.alt || img.caption || '';
+                im.loading = 'lazy';
+                im.addEventListener('load', function () {
+                    im.classList.add('loaded');
+                    fig.classList.remove('shimmer');
+                });
+
+                var cap = document.createElement('figcaption');
+                cap.className = 'gal-caption';
+                cap.textContent = (img.category || '').charAt(0).toUpperCase() + (img.category || '').slice(1);
+
+                fig.appendChild(im);
+                fig.appendChild(cap);
+                col.appendChild(fig);
+                frag.appendChild(col);
+            });
+            grid.innerHTML = '';
+            grid.appendChild(frag);
+        }
+
+        function attachFilters() {
+            var tags = document.querySelectorAll('.gal-tag');
+            var items = document.querySelectorAll('#galleryGrid .gal-item');
+            var countEl = document.getElementById('galCount');
+
+            function updateCount() {
+                var visible = 0;
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].style.display !== 'none') visible++;
+                }
+                if (countEl) countEl.textContent = String(visible);
+            }
+
+            for (var t = 0; t < tags.length; t++) {
+                tags[t].addEventListener('click', function () {
+                    for (var k = 0; k < tags.length; k++) tags[k].classList.remove('active');
+                    this.classList.add('active');
+                    var tag = this.getAttribute('data-tag');
+                    for (var i = 0; i < items.length; i++) {
+                        var ok = (tag === 'all' || items[i].getAttribute('data-cat') === tag);
+                        items[i].style.display = ok ? '' : 'none';
+                    }
+                    updateCount();
+                });
+            }
+            updateCount();
+        }
+
+        function attachLightbox() {
+            var modal = document.getElementById('lightboxModal');
+            var imgEl = document.getElementById('lightboxImage');
+            var capEl = document.getElementById('lightboxCaption');
+            var idxEl = document.getElementById('lightboxIndex');
+            if (!modal || !imgEl) return;
+
+            cards = Array.prototype.slice.call(document.querySelectorAll('#galleryGrid .gal-card'));
+            var current = 0;
+
+            function openAt(i) {
+                if (!cards.length) return;
+                current = (i + cards.length) % cards.length;
+                var c = cards[current];
+                imgEl.src = c.getAttribute('data-image');
+                if (capEl) capEl.textContent = c.getAttribute('data-caption') || '';
+                if (idxEl) idxEl.textContent = (current + 1) + ' / ' + cards.length;
+                if (window.bootstrap && window.bootstrap.Modal) {
+                    new bootstrap.Modal(modal).show();
+                }
+            }
+
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].addEventListener('click', function (e) { e.preventDefault(); openAt(i); });
+                cards[i].addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openAt(i); }
+                });
+            }
+
+            var prevBtn = modal.querySelector('.lightbox-nav.prev');
+            var nextBtn = modal.querySelector('.lightbox-nav.next');
+            if (prevBtn) prevBtn.addEventListener('click', function () { openAt(current - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', function () { openAt(current + 1); });
+
+            var copyBtn = document.getElementById('copyImgLink');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function () {
+                    try {
+                        navigator.clipboard.writeText(imgEl.src);
+                        copyBtn.innerHTML = '<i class="bi bi-check2"></i> Copiado';
+                        setTimeout(function () { copyBtn.innerHTML = '<i class="bi bi-link-45deg me-1"></i>Copiar enlace'; }, 1400);
+                    } catch (e) { }
+                });
+            }
+        }
+
+        (function adminTools() {
+            var loginBtn = document.getElementById('btnAdminLogin');
+            var toolsWrap = document.getElementById('adminTools');
+            if (!loginBtn || !toolsWrap) return;
+
+            loginBtn.addEventListener('click', function () {
+                var pass = prompt('Ingrese passcode de administración');
+                if (pass === 'montenegro2025') {
+                    adminUnlocked = true;
+                    toolsWrap.classList.remove('d-none');
+                    loginBtn.classList.add('d-none');
+                } else {
+                    alert('Código inválido');
+                }
+            });
+
+            var form = document.getElementById('adminAddForm');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    if (!adminUnlocked) return;
+
+                    var src = document.getElementById('fSrc').value.trim();
+                    var thumb = document.getElementById('fThumb').value.trim();
+                    var cat = document.getElementById('fCat').value.trim().toLowerCase();
+                    var cap = document.getElementById('fCaption').value.trim();
+                    var alt = document.getElementById('fAlt').value.trim();
+
+                    if (!src || !cap) {
+                        alert('Src y Caption son obligatorios');
+                        return;
+                    }
+
+                    var add = { id: 'img-' + Date.now(), src: src, thumb: thumb || undefined, category: cat || 'otros', caption: cap, alt: alt || cap };
+                    jsonData.images.push(add);
+                    renderFromJSON(jsonData.images);
+                    attachFilters(); attachLightbox();
+
+                    if (window.bootstrap && window.bootstrap.Modal) {
+                        var modal = bootstrap.Modal.getInstance(document.getElementById('adminAddModal'));
+                        if (modal) modal.hide();
+                    }
+                    form.reset();
+
+                    exportJSON();
+                });
+            }
+
+            var btnExport = document.getElementById('btnExportJson');
+            if (btnExport) btnExport.addEventListener('click', exportJSON);
+
+            function exportJSON() {
+                if (!jsonData.images.length) {
+                    alert('No hay imágenes en memoria para exportar.');
+                    return;
+                }
+                var blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json;charset=utf-8' });
+                var a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'gallery.json';
+                document.body.appendChild(a); a.click(); a.remove();
+                setTimeout(function () { URL.revokeObjectURL(a.href); }, 500);
+            }
+        })();
+
+        (function loadJSON() {
+            fetch('./content/gallery.json', { cache: 'no-cache' })
+                .then(function (res) {
+                    if (!res.ok) throw new Error('gallery.json no encontrado');
+                    return res.json();
+                })
+                .then(function (data) {
+                    if (!data || !data.images) throw new Error('Formato inválido');
+                    jsonData = data;
+                    usingJSON = true;
+                    renderFromJSON(jsonData.images);
+                    attachFilters(); attachLightbox();
+                })
+                .catch(function () {
+                    attachFilters(); attachLightbox();
+                });
+        })();
+    })();
+
+    // =========================
+    //  BACK TO TOP
+    // =========================
+    (() => {
+        const btn = document.getElementById('backToTop');
+        if (!btn) return;
+        const onScrollBtn = () => btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+        window.addEventListener('scroll', onScrollBtn, { passive: true });
+        btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        onScrollBtn();
+    })();
+
+
+    // Este programa calcula el total de visitas recibidas en un sitio web durante 5 días
+    // y determina cuántos días superaron la meta mínima establecida de 300 visitas.
+    let totalVisitas = 0;
+    let diasSobreMeta = 0;
+    for (let dia = 1; dia <= 5; dia++) {
+        let visitas = dia * 120;
+        if (visitas >= 300) {
+            diasSobreMeta++;
+        }
+        totalVisitas = totalVisitas + visitas;
+    }
+    console.log(`Días que superaron la meta: ${diasSobreMeta}`);
+    console.log(`Total de visitas en los 5 días: ${totalVisitas}`);
+    console.log(`Promedio diario de visitas: ${totalVisitas / 5}`);
+
+    // ==============================
+    //  ORACIÓN – Likes globales (PHP + JSON)
+    // ==============================
+    (function () {
+        const grid = document.getElementById('oracionGrid');
+        if (!grid) return;
+
+        const STORAGE_KEY = 'qg_oracionLikesLocal';
+        const API_URL = 'backend/oracion_likes.php';
+
+        function loadLocalState() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                return raw ? JSON.parse(raw) : {};
+            } catch (err) {
+                console.warn('No se pudo leer el estado local de likes.', err);
+                return {};
+            }
+        }
+
+        function saveLocalState(state) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+            } catch (err) {
+                console.warn('No se pudo guardar el estado local de likes.', err);
+            }
+        }
+
+        const localState = loadLocalState();
+        const cards = Array.from(grid.querySelectorAll('.oracion-card'));
+
+        function fetchGlobalLikes() {
+            return fetch(API_URL)
+                .then(res => res.json())
+                .then(data => {
+                    if (!data.success) throw new Error(data.error || 'Error al cargar likes.');
+                    return data.likes || {};
+                })
+                .catch(err => {
+                    console.warn('No se pudieron cargar los likes globales:', err);
+                    return {};
+                });
+        }
+
+        function sendLikeDelta(id, action) {
+            return fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, action })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (!data.success) throw new Error(data.error || 'Error al actualizar like.');
+                    return data.count;
+                });
+        }
+
+        fetchGlobalLikes().then(globalLikes => {
+            cards.forEach(card => {
+                const id = card.dataset.oracionId || '';
+                const likeBtn = card.querySelector('.btn-like-oracion');
+                const likeCountEl = card.querySelector('.like-count');
+                const joinBtn = card.querySelector('.btn-unirse-oracion');
+                const shareBtn = card.querySelector('.btn-icon-share-oracion');
+                const title = (card.querySelector('h5')?.textContent || '').trim();
+                const bodyText = (card.querySelector('p')?.textContent || '').trim();
+
+                if (!likeBtn || !likeCountEl || !id) return;
+
+                const serverCount = Number.isInteger(globalLikes[id]) ? globalLikes[id] : 0;
+                likeCountEl.textContent = serverCount;
+
+                const isLikedLocal = !!localState[id];
+                if (isLikedLocal) {
+                    likeBtn.classList.add('active');
+                }
+
+                likeBtn.addEventListener('click', () => {
+                    const currentlyLiked = !!localState[id];
+                    const action = currentlyLiked ? 'unlike' : 'like';
+
+                    likeBtn.classList.toggle('active', !currentlyLiked);
+
+                    sendLikeDelta(id, action)
+                        .then(newCount => {
+                            likeCountEl.textContent = newCount;
+
+                            if (action === 'like') {
+                                localState[id] = true;
+                            } else {
+                                delete localState[id];
+                            }
+                            saveLocalState(localState);
+                        })
+                        .catch(err => {
+                            console.warn('Error al actualizar like:', err);
+                            likeBtn.classList.toggle('active', currentlyLiked);
+                        });
+                });
+
+                if (joinBtn) {
+                    joinBtn.addEventListener('click', () => {
+                        const contactoSection = document.getElementById('contacto');
+                        if (contactoSection) {
+                            contactoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } else {
+                            window.location.hash = '#contacto';
+                        }
+
+                        const topicSelect = document.getElementById('topic');
+                        const msgInput = document.getElementById('msg');
+
+                        if (topicSelect) {
+                            if ([...topicSelect.options].some(opt => opt.value === 'oracion')) {
+                                topicSelect.value = 'oracion';
+                            }
+                        }
+
+                        if (msgInput) {
+                            const base = `Hola, me gustaría unirme en oración por este motivo:\n\n"${title}"\n\n`;
+                            const detalle = bodyText ? `${bodyText}\n\n` : '';
+                            if (!msgInput.value) {
+                                msgInput.value = base + detalle;
+                            } else {
+                                msgInput.value += `\n\n${base}${detalle}`;
+                            }
+                            msgInput.focus();
+                        }
+                    });
+                }
+
+                if (shareBtn) {
+                    shareBtn.addEventListener('click', async () => {
+                        const shareText =
+                            `${title}\n\n${bodyText}\n\nMotivo de oración — Proyecto Quijada Gómez`;
+                        const shareUrl = window.location.origin + window.location.pathname + '#oracion';
+                        const shareData = {
+                            title: 'Motivo de oración',
+                            text: shareText,
+                            url: shareUrl
+                        };
+
+                        if (navigator.share) {
+                            try {
+                                await navigator.share(shareData);
+                            } catch (err) {
+                                if (err && err.name !== 'AbortError') {
+                                    console.warn('No se pudo compartir el motivo.', err);
+                                }
+                            }
+                            return;
+                        }
+
+                        if (navigator.clipboard && navigator.clipboard.writeText) {
+                            try {
+                                await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+                                alert('Texto copiado para que puedas compartirlo en tus redes.');
+                            } catch (err) {
+                                console.warn('No se pudo copiar al portapapeles.', err);
+                                prompt('Copia este texto para compartir:', `${shareText}\n${shareUrl}`);
+                            }
+                        } else {
+                            prompt('Copia este texto para compartir:', `${shareText}\n${shareUrl}`);
+                        }
+                    });
+                }
+            });
+
+            setMotivoDelDia(cards);
+        });
+
+        function setMotivoDelDia(cards) {
+            const label = document.getElementById('oracionDelDiaLabel');
+            if (!label || !cards.length) return;
+
+            const today = new Date();
+            const dayKey = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            let index = 0;
+
+            for (let i = 0; i < dayKey.length; i++) {
+                index = (index + dayKey.charCodeAt(i)) % cards.length;
+            }
+
+            const card = cards[index];
+            const title = (card.querySelector('h5')?.textContent || '').trim();
+            label.textContent = title || 'Motivo especial de oración';
+        }
+
+    })();
+
+})(); // cierre wrapper NAVBAR & SCROLL EFFECTS

@@ -1,0 +1,19 @@
+{
+    "images": [
+        {
+            "id": "montenegro-01",
+            "src": "/assets/galeria/montenegro-01.jpg",
+            "thumb": "/assets/galeria/montenegro-01-thumb.jpg",
+            "caption": "Paisaje de Montenegro — Berane",
+            "category": "montenegro",
+            "alt": "Vista panorámica de Berane"
+        },
+        {
+            "id": "familia-01",
+            "src": "/assets/familia/familia-01.jpg",
+            "caption": "Familia Quijada Gómez en Chile",
+            "category": "familia",
+            "alt": "Retrato de la familia Quijada Gómez"
+        }
+    ]
+}
